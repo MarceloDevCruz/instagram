@@ -133,8 +133,6 @@ const getUserById = async (req, res) => {
 
   const user = await User.findById(mongoose.Types.ObjectId(formatedId)).select('-password')
 
-  console.log(formatedId)
-
   // checar se o usuário existe
   if (!user) {
     res.status(404).json({ errors: ['Usuário não encontrado'] })
