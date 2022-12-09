@@ -5,6 +5,7 @@ export const blue4 = '#0074cc';
 export const blue5 = '#0057a3';
 export const blue6 = '#002952';
 
+export const gray0 = '#F9FAF8';
 export const gray1 = '#F5F6F7';
 export const gray2 = '#F2F3F5';
 export const gray3 = '#EBEDF0';

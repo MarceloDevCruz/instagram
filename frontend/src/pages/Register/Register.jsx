@@ -1,4 +1,8 @@
+// Styled component
 import { Container } from './styled'
+
+// Images
+import instagram from '../../assets/img/instagram.png'
 
 // Components
 import { Link } from 'react-router-dom'
@@ -40,7 +44,7 @@ const Register = () => {
     < Container >
       <section>
 
-        <h1><em>Instagram</em></h1>
+        <img src={instagram} alt="Instagram logo"></img>
         <div>
           <button> <BsFacebook /> Log in with Facebook</button>
         </div>
