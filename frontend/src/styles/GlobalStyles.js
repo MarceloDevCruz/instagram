@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { gray1, blue3, blue1 } from './Colors'
 
 export default createGlobalStyle`
   * {
@@ -14,6 +15,7 @@ export default createGlobalStyle`
 
   html, body, #root {
     height: 100%;
+    background-color: ${gray1};
   }
 
   button {
@@ -27,4 +29,15 @@ export default createGlobalStyle`
   ul {
     list-style: none;
   }
+
+  ::-webkit-scrollbar {
+  width: .63rem;
+  background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: ${blue3};
+  border-radius: 2.2rem;
+  border: 2px solid white;
+}
 ` 

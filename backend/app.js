@@ -14,8 +14,14 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+const corsOptions = {
+  origin: '*',
+  credentials: true,            //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+}
+
 // Resolvendo CORS
-app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))
+app.use(cors(corsOptions))
 
 // Diretório de upload
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
