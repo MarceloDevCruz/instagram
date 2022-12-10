@@ -12,7 +12,6 @@ const register = async (data) => {
       .catch((err) => err)
 
     if (res) {
-
       localStorage.setItem('user', JSON.stringify(res))
     }
 
@@ -22,8 +21,32 @@ const register = async (data) => {
   }
 }
 
+// Logout
+const logout = () => {
+  localStorage.removeItem('user')
+}
+
+// Fazer login de um usuário cadastrado
+const login = async (data) => {
+
+  const config = requestConfig('POST', data)
+
+  try {
+
+    const res = await fetch(api + '/users/login', config)
+      .then((res) => res.json())
+      .catch((err) => err)
+
+    if (res) localStorage.setItem('user', JSON.stringify(res))
+
+    return res
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 const authService = {
-  register,
+  register, logout, login,
 }
 
 export default authService

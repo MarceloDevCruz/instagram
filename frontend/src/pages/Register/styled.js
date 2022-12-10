@@ -17,6 +17,7 @@ export const Container = styled.section`
       margin: 4em auto;
       color: ${gray6};
       background-color: white;
+      box-shadow: 0px 0px 8px rgba(5,5,5, 0.2);
     }
 
     section p {
