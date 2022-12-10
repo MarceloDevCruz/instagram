@@ -7,6 +7,8 @@ import instagram from '../../assets/img/instagram.png'
 // Components
 import { Link } from 'react-router-dom'
 import { BsFacebook } from 'react-icons/bs'
+import MessageDanger from '../../components/message/danger/MessageDanger'
+import MessageSuccess from '../../components/message/success/MessageSuccess'
 
 // Hooks
 import { useState, useEffect } from 'react'
@@ -41,49 +43,56 @@ const Register = () => {
   }, [dispatch])
 
   return (
-    < Container >
-      <section>
+    <>
+      < Container >
+        <section>
 
-        <img src={instagram} alt="Instagram logo"></img>
-        <div>
-          <button> <BsFacebook /> Log in with Facebook</button>
-        </div>
-        <p><strong>Or</strong></p>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="email"></label>
-          <input type="email" name="email"
-            placeholder='Email' onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            required
-          />
-          <label htmlFor="name"></label>
-          <input type="text" name="name"
-            placeholder='Full Name' onChange={(e) => setName(e.target.value)}
-            value={name}
-            required
-          />
-          <label htmlFor="password"></label>
-          <input type="password" name="password"
-            placeholder='Password' onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            required
-          />
-          <label htmlFor="confirmPassword"></label>
-          <input type="password" name="confirmPassword"
-            placeholder='Confirm Password' onChange={(e) => setConfirmPassword(e.target.value)}
-            value={confirmPassword}
-            required
-          />
-          <input type="submit" value="Sign up" />
-        </form>
-        <div>
-          <p>By signing up, you agree to our
-            <strong> Terms, Data Policy</strong> and
-            <strong> Cookies Policy.</strong>
-          </p>
-        </div>
-      </section>
-    </Container>
+          <img src={instagram} alt="Instagram logo"></img>
+          <div>
+            <button> <BsFacebook /> Log in with Facebook</button>
+          </div>
+          <p><strong>Or</strong></p>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="email"></label>
+            <input type="email" name="email"
+              placeholder='Email' onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              required
+            />
+            <label htmlFor="name"></label>
+            <input type="text" name="name"
+              placeholder='Full Name' onChange={(e) => setName(e.target.value)}
+              value={name}
+              required
+            />
+            <label htmlFor="password"></label>
+            <input type="password" name="password"
+              placeholder='Password' onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              required
+            />
+            <label htmlFor="confirmPassword"></label>
+            <input type="password" name="confirmPassword"
+              placeholder='Confirm Password' onChange={(e) => setConfirmPassword(e.target.value)}
+              value={confirmPassword}
+              required
+            />
+            {!loading && <input type="submit" value="Sign up" />}
+            {loading && <input type="submit" value="Loading..." disabled />}
+          </form>
+          <div>
+            <p>By signing up, you agree to our
+              <strong> Terms, Data Policy</strong> and
+              <strong> Cookies Policy.</strong>
+            </p>
+          </div>
+          <div>
+            {error && <MessageDanger msg={error} type="danger" />}
+            {!error && <MessageSuccess msg={error} type="sucess" />}
+          </div>
+        </section>
+      </Container>
+    </>
   )
 }
 
