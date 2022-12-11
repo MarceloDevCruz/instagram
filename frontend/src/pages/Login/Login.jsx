@@ -32,12 +32,11 @@ const Login = () => {
     }
 
     dispatch(login(user))
-
-    useEffect(() => {
-      dispatch(reset())
-    }, [dispatch])
-
   }
+
+  useEffect(() => {
+    dispatch(reset())
+  }, [dispatch])
 
   return (
     <Container>

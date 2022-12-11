@@ -14,6 +14,8 @@ import { useAuthorization } from './hooks/useAuthorization'
 import Home from './pages/Home/Home'
 import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
+import Footer from './components/footer/Footer'
+import Header from './components/header/Header'
 
 function App() {
 
@@ -24,11 +26,13 @@ function App() {
       {loading ? <Loading /> : (
         <div className="App">
           <BrowserRouter>
+            <Header />
             <Routes>
               <Route path="/" element={!auth ? <Home /> : <Navigate to="/login" />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
             </Routes>
+            <Footer />
           </BrowserRouter>
           <CreateGlobalStyle />
         </div>
