@@ -41,7 +41,7 @@ export const Search = styled.form`
   }
 `
 
-export const ItemLinks = styled.div`
+export const ItemLinks = styled.ul`
   {
     display: flex;
   }
