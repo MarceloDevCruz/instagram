@@ -19,7 +19,7 @@ import instagram from '../../assets/img/instagram.png'
 import { useState } from 'react'
 import { useAuthorization } from '../../hooks/useAuthorization'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { logout, reset } from '../../slices/authSlice'
 
@@ -43,17 +43,17 @@ const NavBar = () => {
     <>
       <HeaderContainer>
         <Logo>
-          <img src={instagram} alt="Logo" />
+          <Link to="/"><img src={instagram} alt="Logo" /></Link>
         </Logo>
         <Search >
           <input type="search" name="search" placeholder='Search' />
           <button><BsSearch /></button>
         </Search>
         <ItemLinks>
-          <li><BsHouseDoor /></li>
+          <Link to="/"><li><BsHouseDoor /></li></Link>
           <li><BsCursor /></li>
           <li><BsPlusSquare /></li>
-          <li><BsPencilSquare /></li>
+          <Link to="/profile"><li><BsPencilSquare /></li></Link>
           <li><BsHeart /></li>
           <li><span onClick={handleLogout}><BsPerson /></span></li>
         </ItemLinks>

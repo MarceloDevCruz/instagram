@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { blue2, danger, gray10, gray5, gray1, blue3 } from '../../styles/Colors'
+import { blue2, danger, gray10, gray5, gray1, blue3, blue4 } from '../../styles/Colors'
 
 export const Container = styled.section`
   {
@@ -53,6 +53,20 @@ export const OtherLinks = styled.div`
 `
 
 export const Photo = styled.div`
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+  }
+
+  div img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+
   input[type="file"] {
     display: none;
   }
@@ -63,12 +77,17 @@ export const Photo = styled.div`
     display: block;
     cursor: pointer;
   }
+
+  label:hover {
+    color: ${blue4};
+  }
 `
 
 export const EditProfileButton = styled.div`
   {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 5em;
     padding-bottom: 2em;
   }
