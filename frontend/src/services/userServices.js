@@ -9,8 +9,8 @@ const profile = async (data, token) => {
     const res = await fetch(api + '/users/profile', config)
       .then((res) => res.json())
       .catch((err) => err)
-    return res
 
+    return res
   } catch (error) {
     console.log(error)
 
@@ -20,7 +20,7 @@ const profile = async (data, token) => {
 // Atualizar perfil
 const updateProfile = async (data, token) => {
 
-  const config = requesConfig('PUT', data, token, true)
+  const config = requestConfig('PUT', data, token, true)
 
   try {
 
@@ -29,7 +29,6 @@ const updateProfile = async (data, token) => {
       .catch((err) => err)
 
     return res
-
   } catch (error) {
     console.log(error)
   }

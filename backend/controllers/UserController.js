@@ -76,7 +76,6 @@ const login = async (req, res) => {
 }
 
 // Função que vai validar a proteção da autenticação
-
 const getCurrentUser = async (req, res) => {
   const user = req.user
 

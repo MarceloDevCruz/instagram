@@ -8,7 +8,7 @@ import {
 import { BsX, BsCheck } from "react-icons/bs"
 
 // Uploads
-import { upload } from '../../utils/config'
+import { uploads } from '../../utils/config'
 
 // hooks
 import { useEffect, useState } from 'react'
@@ -109,7 +109,7 @@ const EditProfile = () => {
                     src={
                       previewImage
                         ? URL.createObjectURL(previewImage)
-                        : `${upload}/users/${user.profileImage}`
+                        : `${uploads}/users/${user.profileImage}`
                     } alt={user.name} />
                 )}
               </div>
@@ -117,7 +117,7 @@ const EditProfile = () => {
               <input type="file" id="file" onChange={handleFile} />
             </Photo>
             <input type="text" placeholder="Change name" onChange={e => setName(e.target.value)} value={name || ''} />
-            <input type="email" placeholder="Change email" disabled value={email || ''} />
+            <input type="email" placeholder="Change email" value={email || ''} />
             <input type="text" placeholder="Change bio" onChange={e => setBio(e.target.value)} value={bio || ''} />
             <input type="password" placeholder="Change password" onChange={e => setPassword(e.target.value)} value={password || ''} />
           </form>
