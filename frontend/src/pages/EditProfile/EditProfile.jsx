@@ -82,7 +82,7 @@ const EditProfile = () => {
 
     setTimeout(() => {
       dispatch(resetMessage())
-    }, 2000);
+    }, 5000);
   }
 
   const handleFile = (e) => {

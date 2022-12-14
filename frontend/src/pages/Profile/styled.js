@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { gray5, gray10, gray1, blue3, blue4 } from '../../styles/Colors'
+import { gray5, gray10, gray1, blue3, blue4, blue2, gray4, gray9 } from '../../styles/Colors'
 
 export const ProfileContainer = styled.section`
     {
@@ -82,13 +82,58 @@ export const FormPostProfile = styled.div`
   label:hover {
     color: ${blue4};
   }
+
+  button {
+      background-color: ${blue2}; 
+      color: ${gray1};
+      width: 20em;
+      height: 2em;
+      border: none;
+      font-weight: bolder;
+      font-size: 1em;
+      border-radius: 5px;
+      margin: 1em auto;
+    }
+
+    button:hover {
+      background-color: ${blue3}; 
+    }
 `
 
 export const PostPhotos = styled.div`
 
-   h1 {
+   h1, h3 {
     text-align: center;
     color: ${gray10};
     margin: 1em;
+  }
+
+  img {
+    height: 400px;
+    width: 350px;
+    border: 3px solid ${blue2};
+    box-shadow: 0px 0px 8px rgba(5,5,5, 0.2);
+  }
+
+  div {
+    margin: 1em;
+  }
+`
+
+export const IconsContainer = styled.div`
+  ul {
+    display: flex;
+    margin: .6em;
+    justify-content: space-around;
+  }
+
+  button {
+    border: none
+  }
+
+  li button svg {
+    font-size: 2em;
+    color: ${gray9};
+    cursor: pointer;
   }
 `
