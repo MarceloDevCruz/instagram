@@ -1,6 +1,6 @@
 import { api, requestConfig } from '../utils/config'
 
-// Pegar um perfil de usuário
+// Pegar um perfil de usuário pelo token
 const profile = async (data, token) => {
   const config = requestConfig('GET', data, token)
 
@@ -34,8 +34,26 @@ const updateProfile = async (data, token) => {
   }
 }
 
+// Pegar um usuário pelo ID
+const getUserDetails = async (id) => {
+
+  const config = requestConfig('GET')
+
+  try {
+
+    const res = await fetch(api + '/users/' + id, config)
+      .then((res) => res.json())
+      .catch((err) => err)
+
+    return res
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 const userService = {
-  profile, updateProfile
+  profile, updateProfile,
+  getUserDetails,
 }
 
 export default userService

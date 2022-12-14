@@ -9,7 +9,7 @@ const initialState = {
   message: null
 }
 
-// Pegar um perfil de usuário
+// Pegar um usuário pelo token
 export const profile = createAsyncThunk(
   'user/profile', async (user, thunkAPI) => {
 
@@ -28,6 +28,16 @@ export const updateProfile = createAsyncThunk(
     const data = await userService.updateProfile(user, token)
 
     if (data.errors) return thunkAPI.rejectWithValue(data.errors[0])
+
+    return data
+  }
+)
+
+// Pegar usuário pelo ID
+export const getUserDetails = createAsyncThunk('user/get',
+  async (id, thunkAPI) => {
+
+    const data = await userService.getUserDetails(id)
 
     return data
   }
@@ -68,6 +78,16 @@ export const userSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
         state.user = null;
+      })
+      .addCase(getUserDetails.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getUserDetails.fulfilled, (state, action) => {
+        state.loading = false;
+        state.success = true;
+        state.error = null;
+        state.user = action.payload;
       })
   }
 })

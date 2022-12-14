@@ -117,7 +117,7 @@ const EditProfile = () => {
               <input type="file" id="file" onChange={handleFile} />
             </Photo>
             <input type="text" placeholder="Change name" onChange={e => setName(e.target.value)} value={name || ''} />
-            <input type="email" placeholder="Change email" value={email || ''} />
+            <input type="email" placeholder="Change email" readOnly value={email || ''} />
             <input type="text" placeholder="Change bio" onChange={e => setBio(e.target.value)} value={bio || ''} />
             <input type="password" placeholder="Change password" onChange={e => setPassword(e.target.value)} value={password || ''} />
           </form>

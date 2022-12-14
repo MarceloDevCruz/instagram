@@ -52,7 +52,7 @@ const NavBar = () => {
         <ItemLinks>
           <Link to="/"><li><BsHouseDoor /></li></Link>
           <li><BsCursor /></li>
-          <li><BsPlusSquare /></li>
+          <Link to={`/users/${user._id}`}><li><BsPlusSquare /></li></Link>
           <Link to="/profile"><li><BsPencilSquare /></li></Link>
           <li><BsHeart /></li>
           <li><span onClick={handleLogout}><BsPerson /></span></li>
