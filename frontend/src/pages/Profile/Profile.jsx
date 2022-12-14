@@ -21,7 +21,7 @@ import { useParams, Link } from 'react-router-dom'
 
 // redux
 import { getUserDetails, } from '../../slices/userSlice'
-import { publishPhoto, resetMessage, getUserPhotos } from '../../slices/photoSlice'
+import { publishPhoto, resetMessage, getUserPhotos, deletePhoto } from '../../slices/photoSlice'
 
 const Profile = () => {
 
@@ -64,6 +64,14 @@ const Profile = () => {
       dispatch(resetMessage())
     }, 5000);
 
+  }
+
+  const handleDelete = (id) => {
+    dispatch(deletePhoto(id))
+
+    setTimeout(() => {
+      dispatch(resetMessage())
+    }, 5000);
   }
 
   const handleFile = (e) => {
@@ -127,7 +135,8 @@ const Profile = () => {
                   <ul>
                     <li><button><VscEye></VscEye></button></li>
                     <li><button><VscEdit></VscEdit></button></li>
-                    <li><button><VscTrash></VscTrash></button></li>
+                    <li><button onClick={() =>
+                      handleDelete(photo._id)}><VscTrash></VscTrash></button></li>
                   </ul>
                 </IconsContainer>
               ) : (
