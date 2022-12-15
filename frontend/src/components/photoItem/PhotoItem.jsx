@@ -12,11 +12,11 @@ const PhotoItem = ({ photo }) => {
     <>
       <PhotoItemContainer>
         {photo.image && (
-          <img src={`${uploads}/photos/${photo.image}`} alt={photo.title} > </img>
+          <img src={`${uploads}/photos/${photo.image}`} alt={photo.title} />
         )}
         <h2>{photo.title}</h2>
         <p>Por:
-          <Link to={`/users/${photo.userId}`}>{photo.userName}</Link>
+          <Link to={`/users/${photo.userId}`}>{` ${photo.userName}`}</Link>
         </p>
       </PhotoItemContainer>
     </>

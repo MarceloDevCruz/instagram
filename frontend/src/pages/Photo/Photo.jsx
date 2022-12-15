@@ -16,7 +16,8 @@ import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 // Redux
-import { getPhotoById } from '../../slices/photoSlice'
+import { getPhotoById, likePhoto } from '../../slices/photoSlice'
+import Like from '../../components/like/Like'
 
 const Photo = () => {
 
@@ -34,16 +35,16 @@ const Photo = () => {
 
   // Like e comentário
 
+  const handleLike = () => {
+    dispatch(likePhoto(photo._id))
+  }
+
   return (
     <>
       <PhotoContainer>
-        {photo.image && (
-          <img src={`${uploads}/photos/${photo.image}`} alt={photo.title} > </img>
-        )}
-        <h2>{photo.title}</h2>
-        <p>Por:
-          <Link to={`/users/${photo.userId}`}>{photo.userName}</Link>
-        </p>
+        <PhotoItem photo={photo} >
+        </PhotoItem>
+        <Like photo={photo} user={user} handleLike={handleLike} />
       </PhotoContainer>
     </>
   )

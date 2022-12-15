@@ -53,22 +53,38 @@ const deletePhoto = async (id, token) => {
 
 // Pegar foto pelo id
 const getPhotoById = async (id) => {
-  const config = requestConfig("GET");
+  const config = requestConfig("GET")
 
   try {
     const res = await fetch(api + "/photos/" + id, config)
       .then((res) => res.json())
-      .catch((err) => err);
+      .catch((err) => err)
 
-    return res;
+    return res
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
-};
+}
+
+const likePhoto = async (id, token) => {
+
+  const config = requestConfig('POST', null, token)
+
+  try {
+
+    const res = await fetch(api + '/photos/like/' + id, config)
+      .then((res) => res.json())
+      .catch((err) => err)
+
+    return res
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 const photoService = {
   publishPhoto, getUserPhotos, deletePhoto,
-  getPhotoById,
+  getPhotoById, likePhoto,
 }
 
 export default photoService
