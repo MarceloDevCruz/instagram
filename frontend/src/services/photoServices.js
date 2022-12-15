@@ -52,21 +52,19 @@ const deletePhoto = async (id, token) => {
 }
 
 // Pegar foto pelo id
-const getPhotoById = async (id, token) => {
-
-  const config = requestConfig('GET', null, token)
+const getPhotoById = async (id) => {
+  const config = requestConfig("GET");
 
   try {
-
-    const res = await fetch(api + '/photos/' + id, config)
+    const res = await fetch(api + "/photos/" + id, config)
       .then((res) => res.json())
-      .catch((err) => err)
+      .catch((err) => err);
 
-    return res
+    return res;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
 
 const photoService = {
   publishPhoto, getUserPhotos, deletePhoto,

@@ -24,9 +24,7 @@ const Photo = () => {
   const dispatch = useDispatch()
 
   const { user } = useSelector((state) => state.auth)
-  const { photo, loading, error, message } = useSelector(
-    (state) => state.photo
-  )
+  const { photo, loading, error, message } = useSelector((state) => state.photo)
   // Comentários
 
   // Dados do post
