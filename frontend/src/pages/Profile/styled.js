@@ -131,7 +131,7 @@ export const IconsContainer = styled.div`
     border: none
   }
 
-  li button svg {
+  li button svg, button svg {
     font-size: 2em;
     color: ${gray9};
     cursor: pointer;

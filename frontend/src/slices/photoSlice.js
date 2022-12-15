@@ -54,6 +54,17 @@ export const deletePhoto = createAsyncThunk(
   }
 )
 
+// Pegar foto pelo ID
+export const getPhotoById = createAsyncThunk(
+  'photo/getphoto', async (id, thunkAPI) => {
+
+    const token = thunkAPI.getState().auth.user.token
+
+    const data = await photoService.getPhotoById(id, token)
+    return data
+  }
+)
+
 export const photoSlice = createSlice({
   name: 'photo',
   initialState,
@@ -108,6 +119,17 @@ export const photoSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
         state.photo = {};
+      })
+      .addCase(getPhotoById.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getPhotoById.fulfilled, (state, action) => {
+        console.log(action.payload);
+        state.loading = false;
+        state.success = true;
+        state.error = null;
+        state.photos = action.payload;
       })
   }
 })

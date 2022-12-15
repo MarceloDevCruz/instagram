@@ -21,7 +21,10 @@ import { useParams, Link } from 'react-router-dom'
 
 // redux
 import { getUserDetails, } from '../../slices/userSlice'
-import { publishPhoto, resetMessage, getUserPhotos, deletePhoto } from '../../slices/photoSlice'
+import {
+  publishPhoto, resetMessage,
+  getUserPhotos, deletePhoto
+} from '../../slices/photoSlice'
 
 const Profile = () => {
 
@@ -63,7 +66,6 @@ const Profile = () => {
     setTimeout(() => {
       dispatch(resetMessage())
     }, 5000);
-
   }
 
   const handleDelete = (id) => {
@@ -133,14 +135,13 @@ const Profile = () => {
               {id === userAuth._id ? (
                 <IconsContainer>
                   <ul>
-                    <li><button><VscEye></VscEye></button></li>
-                    <li><button><VscEdit></VscEdit></button></li>
+                    <Link to={`/photos/${photo._id}`}><button><VscEye></VscEye></button></Link>
                     <li><button onClick={() =>
                       handleDelete(photo._id)}><VscTrash></VscTrash></button></li>
                   </ul>
                 </IconsContainer>
               ) : (
-                <Link to={`/photos/${photo._id}`}>Ver</Link>
+                <Link to={`/photos/${photo._id}`}><button><VscEye></VscEye></button></Link>
               )}
             </div>
           ))}

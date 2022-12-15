@@ -14,11 +14,12 @@ import { useAuthorization } from './hooks/useAuthorization'
 import Home from './pages/Home/Home'
 import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
+import EditProfile from './pages/EditProfile/EditProfile'
+import Profile from './pages/Profile/Profile'
+import Photo from './pages/Photo/Photo'
 
 // components
 import NavBar from './components/navbar/NavBar'
-import EditProfile from './pages/EditProfile/EditProfile'
-import Profile from './pages/Profile/Profile'
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
               <Route path="/register" element={!auth ? <Register /> : <Navigate to="/" />} />
               <Route path="/profile" element={auth ? <EditProfile /> : <Navigate to="/login" />} />
               <Route path="/users/:id" element={auth ? <Profile /> : <Navigate to="/login" />} />
+              <Route path="/photos/:id" element={auth ? <Photo /> : <Navigate to="/login" />} />
             </Routes>
           </BrowserRouter>
           <CreateGlobalStyle />

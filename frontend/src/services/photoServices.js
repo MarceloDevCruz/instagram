@@ -51,8 +51,26 @@ const deletePhoto = async (id, token) => {
   }
 }
 
+// Pegar foto pelo id
+const getPhotoById = async (id, token) => {
+
+  const config = requestConfig('GET', null, token)
+
+  try {
+
+    const res = await fetch(api + '/photos/' + id, config)
+      .then((res) => res.json())
+      .catch((err) => err)
+
+    return res
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 const photoService = {
-  publishPhoto, getUserPhotos, deletePhoto
+  publishPhoto, getUserPhotos, deletePhoto,
+  getPhotoById,
 }
 
 export default photoService
