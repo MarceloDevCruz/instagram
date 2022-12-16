@@ -68,7 +68,7 @@ const getPhotoById = async (id) => {
 
 const likePhoto = async (id, token) => {
 
-  const config = requestConfig('POST', null, token)
+  const config = requestConfig('PUT', null, token)
 
   try {
 

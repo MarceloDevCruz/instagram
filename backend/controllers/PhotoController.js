@@ -130,31 +130,29 @@ const updatePhoto = async (req, res) => {
 
 // Dar like na foto
 const likePhoto = async (req, res) => {
-
   const { id } = req.params
 
   const reqUser = req.user
 
   const photo = await Photo.findById(id)
 
-  // Checar se foto existe
   if (!photo) {
-    res.status(404).json({ errors: ['Foto não encontrada'] })
+    res.status(404).json({ errors: ["Foto não encontrada!"] })
     return
   }
 
-  // Checar se o usuário já deu like na foto
   if (photo.likes.includes(reqUser._id)) {
-    res.status(422).json({ errors: ['Já curtiu a foto'] })
+    res.status(422).json({ errors: ["Você já curtiu esta foto."] })
     return
   }
 
-  // Like array
   photo.likes.push(reqUser._id)
+
   await photo.save()
 
-  res.status(200).json({ photoId: id, userId: reqUser._id, message: "Foto curtida" })
-
+  res
+    .status(200)
+    .json({ photoId: id, userId: reqUser._id, message: "A foto foi curtida!" })
 }
 
 // Comentarios na foto
