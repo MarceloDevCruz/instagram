@@ -66,6 +66,7 @@ const getPhotoById = async (id) => {
   }
 }
 
+// Dar like na foto
 const likePhoto = async (id, token) => {
 
   const config = requestConfig('PUT', null, token)
@@ -82,9 +83,25 @@ const likePhoto = async (id, token) => {
   }
 }
 
+// Comentário na foto
+const commentPhoto = async (data, id, token) => {
+  const config = requestConfig("PUT", data, token);
+
+  try {
+    const res = await fetch(api + "/photos/comment/" + id, config)
+      .then((res) => res.json())
+      .catch((err) => err);
+
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
 const photoService = {
   publishPhoto, getUserPhotos, deletePhoto,
-  getPhotoById, likePhoto,
+  getPhotoById, likePhoto, commentPhoto,
 }
 
 export default photoService

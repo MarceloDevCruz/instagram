@@ -158,27 +158,36 @@ const likePhoto = async (req, res) => {
 // Comentarios na foto
 const commentPhoto = async (req, res) => {
 
-  const { id } = req.params
-  const { comment } = req.body
-  const reqUser = req.user
+  const { id } = req.params;
+  const { comment } = req.body;
 
-  const user = await User.findById(reqUser._id)
-  const photo = await Photo.findById(id)
+  const reqUser = req.user;
 
-  // Checar se o usuário já deu like na foto
-  if (photo.likes.includes(reqUser._id)) {
-    res.status(422).json({ errors: ['Já curtiu a foto'] })
-    return
+  const user = await User.findById(reqUser._id);
+
+  const photo = await Photo.findById(id);
+
+  if (!photo) {
+    res.status(404).json({ errors: ["Foto não encontrada!"] });
+    return;
   }
 
   // Comentário array
-  const userComment = { comment, userName: user.name, userImage: user.profileImage, userOd: user._id }
+  const userComment = {
+    comment,
+    userName: user.name,
+    userImage: user.profileImage,
+    userId: user._id,
+  };
 
-  photo.comments.push(userComment)
-  await photo.save()
+  photo.comments.push(userComment);
 
-  res.status(200).json({ photoId: id, userId: reqUser._id, message: "Foto Comentada" })
+  await photo.save();
 
+  res.status(200).json({
+    comment: userComment,
+    message: "Comentário adicionado com sucesso!",
+  })
 }
 
 // Busca por posts
