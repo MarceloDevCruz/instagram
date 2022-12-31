@@ -99,13 +99,13 @@ const commentPhoto = async (data, id, token) => {
 }
 
 // Resgatar todas os posts
-const getAllPost = async () => {
+const getAllPosts = async () => {
 
   const config = requestConfig('GET')
 
   try {
 
-    const res = await fetch(api + '/photos', config)
+    const res = await fetch(api + '/photos/', config)
       .then((res) => res.json())
       .catch((err) => err)
 
@@ -119,7 +119,7 @@ const getAllPost = async () => {
 
 const photoService = {
   publishPhoto, getUserPhotos, deletePhoto,
-  getPhotoById, likePhoto, commentPhoto, getAllPost
+  getPhotoById, likePhoto, commentPhoto, getAllPosts
 }
 
 export default photoService

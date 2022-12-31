@@ -68,7 +68,9 @@ const getAllPhotos = async (req, res) => {
 
   // Pegar todas as fotos pelo objeto vázio, fazer um sort por createdAt ou seja
   // pelos mais novos
-  const photos = await Photo.find({}).sort([['createdAt', -1]]).exec()
+  const photos = await Photo.find({})
+    .sort([["createdAt", -1]])
+    .exec();
 
   return res.status(200).json(photos)
 }
@@ -78,7 +80,9 @@ const getUserPhotoById = async (req, res) => {
 
   const { id } = req.params
 
-  const photos = await Photo.find({ userId: id }).sort([['createdAt', -1]]).exec()
+  const photos = await Photo.find({ userId: id })
+    .sort([["createdAt", -1]])
+    .exec();
 
   res.status(200).json(photos)
 }

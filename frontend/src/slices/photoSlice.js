@@ -100,7 +100,7 @@ export const commentPhoto = createAsyncThunk(
 export const getAllPosts = createAsyncThunk(
   'photo/getall', async () => {
 
-    const data = await photoService.getAllPost(token)
+    const data = await photoService.getAllPosts()
     console.log(data)
     return data
   }
@@ -204,9 +204,10 @@ export const photoSlice = createSlice({
       })
       .addCase(getAllPosts.pending, (state) => {
         state.loading = true;
-        state.error = false;
+        state.error = null;
       })
       .addCase(getAllPosts.fulfilled, (state, action) => {
+        console.log(action.payload);
         state.loading = false;
         state.success = true;
         state.error = null;

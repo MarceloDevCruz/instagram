@@ -29,6 +29,11 @@ app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 // Conexão com o banco de dados
 require('./config/db.js')
 
+// testando rota
+app.get("/", (req, res) => {
+  res.send("API Working!");
+});
+
 // Rotas
 const router = require('./routes/Router.js')
 
