@@ -20,9 +20,9 @@ router.post('/', authGuard, imageUpload.single('image'),
 router.delete('/:id', authGuard, deletePhoto)
 router.get('/', getAllPhotos)
 router.get('/user/:id', getUserPhotoById)
-router.get('/search/', searchPosts)
+router.get('/search', searchPosts)
 router.get('/:id', getPhotoById)
-router.put('/:id', authGuard, photoUpdateValidation(), validate, updatePhoto)
+router.put('/:id', authGuard, imageUpload.single('image'), photoUpdateValidation(), validate, updatePhoto)
 router.put('/like/:id', authGuard, likePhoto)
 router.put('/comment/:id', authGuard, photoCommentValidation(), validate, commentPhoto)
 

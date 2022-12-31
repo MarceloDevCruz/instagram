@@ -9,7 +9,7 @@ import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 // Redux
-import { getAllPhotos, likePhoto } from '../../slices/photoSlice'
+import { getAllPosts, likePhoto } from '../../slices/photoSlice'
 
 const Home = () => {
 
@@ -21,14 +21,12 @@ const Home = () => {
   // Carregar fotos
 
   useEffect(() => {
-    dispatch(getAllPhotos())
+    dispatch(getAllPosts())
   }, [dispatch])
 
   const handleLike = (photo) => {
     dispatch(likePhoto(photo._id))
   }
-
-  console.log(photos)
 
   return (
     <div >
@@ -44,8 +42,7 @@ const Home = () => {
         ))}
       {photos && photos.length === 0 && (
         <h2 className="no-photos">
-          Ainda não há fotos publicadas,{" "}
-          <Link to={`/users/${user.userId}`}>clique aqui</Link> para começar.
+          Ainda não há fotos publicadas{" "}
         </h2>
       )}
     </div>
