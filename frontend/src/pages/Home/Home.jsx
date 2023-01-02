@@ -35,19 +35,19 @@ const Home = () => {
           <div key={photo._id}>
             <PhotoItem photo={photo} />
             <Like photo={photo} user={user} handleLike={handleLike} />
-            <Link className="btn" to={`/photos/${photo._id}`}>
+            <Link to={`/photos/${photo._id}`}>
               Ver mais
             </Link>
           </div>
         ))}
       {photos && photos.length === 0 && (
-        <h2 className="no-photos">
-          Ainda não há fotos publicadas{" "}
+        <h2 >
+          Ainda não há fotos publicadas
         </h2>
       )}
     </div>
-  );
-};
+  )
+}
 
 
 export default Home

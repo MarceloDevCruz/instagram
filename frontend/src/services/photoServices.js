@@ -115,11 +115,29 @@ const getAllPosts = async () => {
   }
 }
 
+// Pesquisa por titulo
+
+const searchPost = async (query) => {
+
+  const config = requestConfig('GET')
+
+  try {
+
+    const res = await fetch(api + '/photos/search?q=' + query, config)
+      .then((res) => res.json())
+      .catch((err) => res.err)
+
+    return res
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 
 
 const photoService = {
   publishPhoto, getUserPhotos, deletePhoto,
-  getPhotoById, likePhoto, commentPhoto, getAllPosts
+  getPhotoById, likePhoto, commentPhoto, getAllPosts, searchPost
 }
 
 export default photoService

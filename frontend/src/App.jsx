@@ -20,6 +20,7 @@ import Photo from './pages/Photo/Photo'
 
 // components
 import NavBar from './components/navbar/NavBar'
+import Search from './components/search/Search'
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
               <Route path="/" element={auth ? <Home /> : <Navigate to="/login" />} />
               <Route path="/login" element={!auth ? <Login /> : <Navigate to="/" />} />
               <Route path="/register" element={!auth ? <Register /> : <Navigate to="/" />} />
+              <Route path="/search" element={!auth ? <Search /> : <Search to="/login" />} />
               <Route path="/profile" element={auth ? <EditProfile /> : <Navigate to="/login" />} />
               <Route path="/users/:id" element={auth ? <Profile /> : <Navigate to="/login" />} />
               <Route path="/photos/:id" element={auth ? <Photo /> : <Navigate to="/login" />} />

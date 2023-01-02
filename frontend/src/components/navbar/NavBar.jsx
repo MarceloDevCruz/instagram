@@ -28,6 +28,8 @@ const NavBar = () => {
   const { auth } = useAuthorization()
   const { user } = useSelector((state) => state.auth)
 
+  const [query, setQuery] = useState('')
+
   const navigate = useNavigate()
 
   const dispatch = useDispatch()
@@ -39,6 +41,15 @@ const NavBar = () => {
     navigate('/login')
   }
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    if (query) {
+      return navigate(`/search?q=${query}`)
+    }
+  }
+
+
   return (
     <>
       <HeaderContainer>
@@ -46,8 +57,11 @@ const NavBar = () => {
           <Link to="/"><img src={instagram} alt="Logo" /></Link>
         </Logo>
         <Search >
-          <input type="search" name="search" placeholder='Search' />
-          <button><BsSearch /></button>
+          <form onSubmit={handleSearch}>
+            <input type="search" name="search" placeholder='Search'
+              onChange={(e) => setQuery(e.target.value)} />
+            <button><BsSearch /></button>
+          </form>
         </Search>
         <ItemLinks>
           <Link to="/"><li><BsHouseDoor /></li></Link>
@@ -59,7 +73,6 @@ const NavBar = () => {
         </ItemLinks>
       </HeaderContainer>
     </>
-
   )
 }
 

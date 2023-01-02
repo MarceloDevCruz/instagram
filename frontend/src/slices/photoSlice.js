@@ -101,10 +101,21 @@ export const getAllPosts = createAsyncThunk(
   'photo/getall', async () => {
 
     const data = await photoService.getAllPosts()
-    console.log(data)
     return data
   }
 )
+
+// Fazer pesquisa pelo titulo do post
+export const searchPost = createAsyncThunk(
+  "photo/search",
+  async (query, thunkAPI) => {
+    const token = thunkAPI.getState().auth.user.token;
+
+    const data = await photoService.searchPost(query, token);
+
+    return data;
+  }
+);
 
 
 export const photoSlice = createSlice({
@@ -207,7 +218,16 @@ export const photoSlice = createSlice({
         state.error = null;
       })
       .addCase(getAllPosts.fulfilled, (state, action) => {
-        console.log(action.payload);
+        state.loading = false;
+        state.success = true;
+        state.error = null;
+        state.photos = action.payload;
+      })
+      .addCase(searchPost.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(searchPost.fulfilled, (state, action) => {
         state.loading = false;
         state.success = true;
         state.error = null;

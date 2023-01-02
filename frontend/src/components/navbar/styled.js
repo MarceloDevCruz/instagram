@@ -16,7 +16,7 @@ export const Logo = styled.div`
     width: 160px;
   }
 `
-export const Search = styled.form`
+export const Search = styled.div`
   input[type=search] {
     outline: none;
     border: .1em solid ${gray7};
