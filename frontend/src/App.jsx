@@ -1,9 +1,3 @@
-// Styled componets
-import CreateGlobalStyle from './styles/GlobalStyles'
-
-// Styles
-import { Loading } from './styles/Loading'
-
 // React router
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 
@@ -21,6 +15,8 @@ import Photo from './pages/Photo/Photo'
 // components
 import NavBar from './components/navbar/NavBar'
 import Search from './components/search/Search'
+import Header from './components/header/Header'
+import Footer from './components/footer/Footer'
 
 function App() {
 
@@ -28,10 +24,10 @@ function App() {
 
   return (
     <>
-      {loading ? <Loading /> : (
+      {loading ? '<Loading />' : (
         <div className="App">
           <BrowserRouter>
-            {auth && <NavBar />}
+            {auth ? <NavBar /> : <Header />}
             <Routes>
               <Route path="/" element={auth ? <Home /> : <Navigate to="/login" />} />
               <Route path="/login" element={!auth ? <Login /> : <Navigate to="/" />} />
@@ -41,8 +37,8 @@ function App() {
               <Route path="/users/:id" element={auth ? <Profile /> : <Navigate to="/login" />} />
               <Route path="/photos/:id" element={auth ? <Photo /> : <Navigate to="/login" />} />
             </Routes>
+            <Footer />
           </BrowserRouter>
-          <CreateGlobalStyle />
         </div>
       )}
     </>

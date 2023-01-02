@@ -1,9 +1,3 @@
-// Styled Component
-import {
-  Container, Photo,
-  EditProfileButton, OtherLinks, Form
-} from './styled'
-
 // Bootstrap icons
 import { BsX, BsCheck } from "react-icons/bs"
 
@@ -94,43 +88,33 @@ const EditProfile = () => {
 
   return (
     <>
-      <Container>
-        <Form>
-          <form onSubmit={handleSubmit}>
-            <EditProfileButton>
-              <button type="reset"><BsX /></button>
-              <h2>Edit Profile</h2>
-              <button type='submit'>< BsCheck /></button>
-            </EditProfileButton>
-            <Photo>
-              <div>
-                {(user.profileImage || previewImage) && (
-                  <img
-                    src={
-                      previewImage
-                        ? URL.createObjectURL(previewImage)
-                        : `${uploads}/users/${user.profileImage}`
-                    } alt={user.name} />
-                )}
-              </div>
-              <label htmlFor="file">Change profile photo</label>
-              <input type="file" id="file" onChange={handleFile} />
-            </Photo>
-            <input type="text" placeholder="Change name" onChange={e => setName(e.target.value)} value={name || ''} />
-            <input type="email" placeholder="Change email" readOnly value={email || ''} />
-            <input type="text" placeholder="Change bio" onChange={e => setBio(e.target.value)} value={bio || ''} />
-            <input type="password" placeholder="Change password" onChange={e => setPassword(e.target.value)} value={password || ''} />
-          </form>
-          <OtherLinks>
-            <p>Switch to Professional account</p>
-            <p>Personal information settings</p>
-          </OtherLinks>
-        </Form>
+      <form onSubmit={handleSubmit}>
+        <button type="reset"><BsX /></button>
+        <h2>Edit Profile</h2>
+        <button type='submit'>< BsCheck /></button>
         <div>
-          {error && <MessageDanger msg={error} type="danger" />}
-          {message && <MessageSuccess msg={message} type="sucess" />}
+          {(user.profileImage || previewImage) && (
+            <img
+              src={
+                previewImage
+                  ? URL.createObjectURL(previewImage)
+                  : `${uploads}/users/${user.profileImage}`
+              } alt={user.name} />
+          )}
         </div>
-      </Container>
+        <label htmlFor="file">Change profile photo</label>
+        <input type="file" id="file" onChange={handleFile} />
+        <input type="text" placeholder="Change name" onChange={e => setName(e.target.value)} value={name || ''} />
+        <input type="email" placeholder="Change email" readOnly value={email || ''} />
+        <input type="text" placeholder="Change bio" onChange={e => setBio(e.target.value)} value={bio || ''} />
+        <input type="password" placeholder="Change password" onChange={e => setPassword(e.target.value)} value={password || ''} />
+      </form>
+      <p>Switch to Professional account</p>
+      <p>Personal information settings</p>
+      <div>
+        {error && <MessageDanger msg={error} type="danger" />}
+        {message && <MessageSuccess msg={message} type="sucess" />}
+      </div>
     </>
   )
 }

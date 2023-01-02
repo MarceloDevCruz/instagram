@@ -1,0 +1,17 @@
+.btn {
+
+  width: 20rem;
+  height: 4rem;
+  font-weight: 500;
+  border-radius: 10px;
+
+  &-outline-white {
+    border: 1px solid $color-white;
+
+    &:hover {
+      background-color: $color-primary-dark;
+      border: none;
+    }
+  }
+
+}

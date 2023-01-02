@@ -1,9 +1,3 @@
-// Styled
-import { Container } from './styled'
-
-// Images
-import instagram from '../../assets/img/instagram.png'
-
 // Components
 import { Link } from 'react-router-dom'
 import MessageDanger from '../../components/message/danger/MessageDanger'
@@ -12,6 +6,9 @@ import MessageSuccess from '../../components/message/success/MessageSuccess'
 // Hooks
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+
+// Imagem
+import vector from '../../assets/img/login-vector.svg'
 
 // Redux
 import { login, reset } from '../../slices/authSlice'
@@ -39,37 +36,29 @@ const Login = () => {
   }, [dispatch])
 
   return (
-    <Container>
-      <section>
-        <img src={instagram} alt="Instagram logo"></img>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="email"></label>
-          <input type="email" name="email"
-            placeholder='Phone number,username, or email'
-            required onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
-          <label htmlFor="password"></label>
-          <input type="password" name="password"
-            placeholder='Password'
-            required onChange={(e) => setPassword(e.target.value)}
-            value={password}
-          />
-          <input type="submit" value="Log in" />
-        </form>
-        <div>
-          <span>or</span>
-        </div>
-        <p>Login with Facebook</p>
-        <div>
-          <p>Don't have an account? Sign Up</p>
-        </div>
-        <div>
+    <section className="login">
+      <div className="login__container">
+        <img src={vector} alt="vector" className="login__vector" />
+        <div className="login__input-container">
+          <h2 className="login__input-container__title">Faça Login</h2>
+          <form className="login__input-container__form"
+            onSubmit={handleSubmit}>
+            <input type="email" className="login__input-container__input" placeholder="Seu email..."
+              name="email" required onChange={(e) => setEmail(e.target.value)} value={email} />
+            <input type="password" className="login__input-container__input" placeholder="Sua senha..."
+              name="password" required onChange={(e) => setPassword(e.target.value)} value={password} />
+            <button className="btn btn-outline-white" type="submit" >Entrar</button>
+          </form>
+          <p className="login__input-container__paragraph mg-top-sm">Não possui conta?</p>
+          <p className="login__input-container__paragraph">Faça o <Link>cadastro</Link> no site</p>
+
+          {/* TROCAR POR UMA FLASH MESSAGER! */}
           {error && <MessageDanger msg={error} type="danger" />}
           {!error && <MessageSuccess msg={error} type="sucess" />}
         </div>
-      </section>
-    </Container>
+      </div>
+    </section>
+
   )
 }
 

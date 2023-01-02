@@ -1,6 +1,3 @@
-// Styled
-import { Logo, Search, ItemLinks, HeaderContainer } from './styled'
-
 // Bootstrap icons
 import {
   BsHouseDoor,
@@ -12,7 +9,6 @@ import {
   BsSearch
 } from "react-icons/bs";
 
-// Logo
 import instagram from '../../assets/img/instagram.png'
 
 // hooks
@@ -49,29 +45,21 @@ const NavBar = () => {
     }
   }
 
-
   return (
     <>
-      <HeaderContainer>
-        <Logo>
-          <Link to="/"><img src={instagram} alt="Logo" /></Link>
-        </Logo>
-        <Search >
-          <form onSubmit={handleSearch}>
-            <input type="search" name="search" placeholder='Search'
-              onChange={(e) => setQuery(e.target.value)} />
-            <button><BsSearch /></button>
-          </form>
-        </Search>
-        <ItemLinks>
-          <Link to="/"><li><BsHouseDoor /></li></Link>
-          <li><BsCursor /></li>
-          <Link to={`/users/${user._id}`}><li><BsPlusSquare /></li></Link>
-          <Link to="/profile"><li><BsPencilSquare /></li></Link>
-          <li><BsHeart /></li>
-          <li><span onClick={handleLogout}><BsPerson /></span></li>
-        </ItemLinks>
-      </HeaderContainer>
+      <Link to="/"><img src={instagram} alt="Logo" /></Link>
+      <form onSubmit={handleSearch}>
+        <input type="search" name="search" placeholder='Search'
+          onChange={(e) => setQuery(e.target.value)} />
+        <button><BsSearch /></button>
+      </form>
+
+      <Link to="/"><li><BsHouseDoor /></li></Link>
+      <li><BsCursor /></li>
+      <Link to={`/users/${user._id}`}><li><BsPlusSquare /></li></Link>
+      <Link to="/profile"><li><BsPencilSquare /></li></Link>
+      <li><BsHeart /></li>
+      <li><span onClick={handleLogout}><BsPerson /></span></li>
     </>
   )
 }

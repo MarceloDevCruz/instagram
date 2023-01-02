@@ -1,9 +1,3 @@
-// Styled component
-import {
-  ProfileContainer, FormPostProfile, PostPhotos,
-  UserProfile, IconsContainer
-} from './styled'
-
 // VScode icons
 import { VscEdit, VscEye, VscTrash } from 'react-icons/vsc'
 
@@ -88,72 +82,62 @@ const Profile = () => {
 
   return (
     <>
-      <ProfileContainer >
-        <UserProfile>
-          {user.profileImage && (
-            <img src={`${uploads}/users/${user.profileImage}`} alt={user.name} />
-          )}
-          <div>
-            <h1>{user.name}</h1>
-            <p>Your bio:</p>
-            <p>{user.bio}</p>
-          </div>
-        </UserProfile>
+      {user.profileImage && (
+        <img src={`${uploads}/users/${user.profileImage}`} alt={user.name} />
+      )}
+      <div>
+        <h1>{user.name}</h1>
+        <p>Your bio:</p>
+        <p>{user.bio}</p>
+      </div>
 
-        {id === userAuth._id && (
-          <>
-            <FormPostProfile>
-              <div ref={newPhotoForm}>
-                <form onSubmit={handleSubmit}>
-                  <h1>Create a New Post</h1>
-                  <input type="text" placeholder="Insert title" onChange={(e) => setTitle(e.target.value)} value={title || ''} />
-                  <label htmlFor="file">Insert Image for you post</label>
-                  <input type="file" id="file" onChange={handleFile} />
-                  <button type='submit'>Post</button>
-                </form>
-              </div>
-            </FormPostProfile>
-          </>
-        )}
-        <PostPhotos>
-          {id === userAuth._id ? (
-            <>
-              <h1>Your posts</h1>
-            </>
-          ) : (
-            <>
-              <h1>{user.name} Posts</h1>
-            </>
+      {id === userAuth._id && (
+        <>
+          <div ref={newPhotoForm}>
+            <form onSubmit={handleSubmit}>
+              <h1>Create a New Post</h1>
+              <input type="text" placeholder="Insert title" onChange={(e) => setTitle(e.target.value)} value={title || ''} />
+              <label htmlFor="file">Insert Image for you post</label>
+              <input type="file" id="file" onChange={handleFile} />
+              <button type='submit'>Post</button>
+            </form>
+          </div>
+        </>
+      )}
+      {id === userAuth._id ? (
+        <>
+          <h1>Your posts</h1>
+        </>
+      ) : (
+        <>
+          <h1>{user.name} Posts</h1>
+        </>
+      )}
+      {photos && photos.map((photo) => (
+        <div key={photo._id}>
+          <h3>{photo.title}</h3>
+          {photo.image && (
+            <img src={`${uploads}/photos/${photo.image}`}
+              alt={photo.title}></img>
           )}
-          {photos && photos.map((photo) => (
-            <div key={photo._id}>
-              <h3>{photo.title}</h3>
-              {photo.image && (
-                <img src={`${uploads}/photos/${photo.image}`}
-                  alt={photo.title}></img>
-              )}
-              {id === userAuth._id ? (
-                <IconsContainer>
-                  <ul>
-                    <Link to={`/photos/${photo._id}`}><button><VscEye></VscEye></button></Link>
-                    <li><button onClick={() =>
-                      handleDelete(photo._id)}><VscTrash></VscTrash></button></li>
-                  </ul>
-                </IconsContainer>
-              ) : (
-                <Link to={`/photos/${photo._id}`}><button><VscEye></VscEye></button></Link>
-              )}
-            </div>
-          ))}
-          {photos.length === 0 &&
-            <p>Sem fotos no momento</p>
-          }
-        </PostPhotos>
-        <div>
-          {errorPhoto && <MessageDanger msg={errorPhoto} type="danger" />}
-          {messagePhoto && <MessageSuccess msg={messagePhoto} type="sucess" />}
+          {id === userAuth._id ? (
+            <ul>
+              <Link to={`/photos/${photo._id}`}><button><VscEye></VscEye></button></Link>
+              <li><button onClick={() =>
+                handleDelete(photo._id)}><VscTrash></VscTrash></button></li>
+            </ul>
+          ) : (
+            <Link to={`/photos/${photo._id}`}><button><VscEye></VscEye></button></Link>
+          )}
         </div>
-      </ProfileContainer>
+      ))}
+      {photos.length === 0 &&
+        <p>Sem fotos no momento</p>
+      }
+      <div>
+        {errorPhoto && <MessageDanger msg={errorPhoto} type="danger" />}
+        {messagePhoto && <MessageSuccess msg={messagePhoto} type="sucess" />}
+      </div>
     </>
   )
 }
