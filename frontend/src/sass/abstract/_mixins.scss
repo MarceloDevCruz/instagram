@@ -1,5 +1,10 @@
 // MEDIA QUERYS
 @mixin respond($breakpoint) {
+
+  @if $breakpoint == small-phone {
+    @media only screen and ( max-width: 28.1em ) { @content }; //600px
+  }
+
   @if $breakpoint == phone {
     @media only screen and ( max-width: 37.5em ) { @content }; //600px
   }
@@ -42,6 +47,10 @@
     width: 35rem;
     margin: 1rem;
     padding: 1.5rem;
+  }
+
+  @include respond(small-phone) {
+    width: 30rem;
   }
 }
 

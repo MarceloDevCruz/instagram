@@ -14,12 +14,18 @@ body {
   font-family: 'Quicksand', sans-serif;
   color: #f5eeee;
   background-color: #131212; }
+  @media only screen and (max-width: 28.1em) {
+    body {
+      font-size: 1.2rem; } }
 
 h1 {
   font-size: 4.1rem; }
 
 h2 {
   font-size: 3.5rem; }
+  @media only screen and (max-width: 28.1em) {
+    h2 {
+      font-size: 3.1rem; } }
 
 h3 {
   font-size: 2.9rem; }
@@ -99,6 +105,9 @@ input {
       width: 35rem;
       margin: 1rem;
       padding: 1.5rem; } }
+  @media only screen and (max-width: 28.1em) {
+    .form__container {
+      width: 30rem; } }
   .form__container-register {
     height: 52rem;
     width: 45rem;
@@ -116,6 +125,9 @@ input {
         width: 35rem;
         margin: 1rem;
         padding: 1.5rem; } }
+    @media only screen and (max-width: 28.1em) {
+      .form__container-register {
+        width: 30rem; } }
 
 .form__title {
   text-transform: uppercase;
