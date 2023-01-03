@@ -180,14 +180,15 @@ ul {
   background-image: linear-gradient(to right top, rgba(55, 52, 52, 0.9), rgba(9, 8, 8, 0.8)), url("../assets/img/header-background.png");
   background-repeat: repeat-x;
   background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: space-around; }
+  display: grid;
+  grid-template-columns: 40vw 40vw 20vw; }
   @media only screen and (max-width: 37.5em) {
     .header {
       flex-direction: column; } }
   .header__logo {
-    height: 5rem; }
+    height: 5rem;
+    justify-self: center;
+    align-self: center; }
   .header__search {
     width: 30rem;
     height: 5rem;
@@ -208,19 +209,30 @@ ul {
         height: 4rem;
         font-size: 1.2rem; } }
   .header__form {
-    position: relative; }
+    position: relative;
+    justify-self: start;
+    align-self: center; }
   .header__button {
     font-size: 2.5rem;
     position: absolute;
-    top: 12px;
-    right: 10px; }
+    top: 25%;
+    right: 5%; }
     @media only screen and (max-width: 56.25em) {
       .header__button {
         font-size: 2rem;
         top: 8px;
         right: 10px; } }
   .header__sidebar {
-    font-size: 6rem; }
+    font-size: 6rem;
+    position: fixed;
+    top: 5%;
+    right: 10%;
+    z-index: 20; }
+    .header__sidebar-close {
+      font-size: 7.5rem;
+      position: fixed;
+      top: 1.5%;
+      right: 15.5%; }
     @media only screen and (max-width: 56.25em) {
       .header__sidebar {
         font-size: 4.5rem; } }

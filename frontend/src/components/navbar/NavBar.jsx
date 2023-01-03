@@ -1,5 +1,5 @@
 // Bootstrap icons
-import { BsSearch, BsChevronLeft, BsChevronRight } from 'react-icons/bs'
+import { BsSearch, BsList, BsX } from 'react-icons/bs'
 
 // Images
 import logo from '../../assets/img/instagram.png'
@@ -55,7 +55,7 @@ const NavBar = () => {
         <button className="header__button"><BsSearch /></button>
       </form>
 
-      <button onClick={onShow} className="header__sidebar"> {render ? <BsChevronRight /> : <BsChevronLeft />}</button>
+      <button onClick={onShow} className="header__sidebar"> {render ? <BsX className="header__sidebar-close" /> : <BsList />}</button>
       {render && <Sidebar />}
     </header>
   )

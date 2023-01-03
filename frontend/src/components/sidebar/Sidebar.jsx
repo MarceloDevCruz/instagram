@@ -12,7 +12,6 @@ const Sidebar = () => {
   return (
     <section className="sidebar">
       <div className="sidebar__button-container">
-        <button className="sidebar__button"> <BsChevronRight /></button>
       </div>
       <nav className="sidebar__container">
         <ul className="sidebar__list">
