@@ -39,18 +39,18 @@ const Login = () => {
     <section className="login">
       <div className="login__container">
         <img src={vector} alt="vector" className="login__vector" />
-        <div className="login__input-container">
-          <h2 className="login__input-container__title">Faça Login</h2>
-          <form className="login__input-container__form"
+        <div className="form__container">
+          <h2 className="form__title">Faça Login</h2>
+          <form
             onSubmit={handleSubmit}>
-            <input type="email" className="login__input-container__input" placeholder="Seu email..."
+            <input type="email" className="form__input" placeholder="Seu email..."
               name="email" required onChange={(e) => setEmail(e.target.value)} value={email} />
-            <input type="password" className="login__input-container__input" placeholder="Sua senha..."
+            <input type="password" className="form__input" placeholder="Sua senha..."
               name="password" required onChange={(e) => setPassword(e.target.value)} value={password} />
             <button className="btn btn-outline-white" type="submit" >Entrar</button>
           </form>
-          <p className="login__input-container__paragraph mg-top-sm">Não possui conta?</p>
-          <p className="login__input-container__paragraph">Faça o <Link>cadastro</Link> no site</p>
+          <p className=" mg-top-sm">Não possui conta?</p>
+          <p >Faça o <Link to="/register">cadastro</Link> no site</p>
 
           {/* TROCAR POR UMA FLASH MESSAGER! */}
           {error && <MessageDanger msg={error} type="danger" />}

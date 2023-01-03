@@ -1,4 +1,4 @@
-.login {
+.register {
 
   max-width: 130rem;
   height: auto;
@@ -28,7 +28,12 @@
 
   &__vector {
     margin: 3rem;
-    width: 55%;
+    width: 57%;
+
+    @include respond(tab-land) {
+      width: 50%;
+      margin: 2rem;
+    }
 
     @include respond(phone) {
       width: 80%;

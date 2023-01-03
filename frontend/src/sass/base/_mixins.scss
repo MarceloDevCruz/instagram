@@ -13,3 +13,34 @@
     @media only screen and ( min-width: 112.5em ) { @content }; //1800px
   }
 }
+
+// FORM CONTAINER LOGIN AND REGISTER
+@mixin formContainer($formType) {
+  @if $formType == register {
+    height: 52rem;
+    width: 45rem;
+  }
+
+  @if $formType == login {
+    height: 40rem;
+    width: 40rem;
+  }
+
+  background-color: rgba($color-primary-dark, .3);
+  margin: 3rem;
+  border-radius: 10px;
+  padding: 3rem;
+
+  display: flex;
+  flex-direction: column;
+
+  @include respond(tab-port) {
+    width: 50rem;
+  } 
+
+  @include respond(phone) {
+    width: 35rem;
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+}

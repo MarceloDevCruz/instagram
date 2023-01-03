@@ -1,0 +1,40 @@
+.form {
+
+  &__container {
+   @include formContainer(login);
+
+    &-register {
+      @include formContainer(register);
+    }
+  }
+
+    &__title {
+      text-transform: uppercase;
+      display: inline-block;
+      background-image: linear-gradient(to right,
+      $color-secondary-light, $color-secondary-dark);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 2px;
+    }
+
+    &__input {
+      display: flex;
+
+      margin:2rem 0;
+      padding: 1rem;
+      border-radius: 10px;
+      background-color: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      width: 90%;
+      display: block;
+      color: $color-white;
+      letter-spacing: 2px;
+
+      &::placeholder {
+        color: $color-white-dark;
+    }
+  }
+}

@@ -7,7 +7,8 @@ const Footer = () => {
     <footer className="footer">
       <p className="footer__paragraphy">Copyright © Marcelo Ferreira Cruz, MIT Licence</p>
       <p className="footer__paragraphy">Repositório do projeto</p>
-      <a> <BsGithub className="footer__github" /> </a>
+      <a href="https://github.com/MarceloDevCruz/instagram" target="_blank">
+        <BsGithub className="footer__github" /> </a>
     </footer>
   )
 }
