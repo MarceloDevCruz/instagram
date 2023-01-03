@@ -1,0 +1,96 @@
+%items {
+  gap: 10%;
+}
+
+.sidebar {
+
+  position: fixed;
+  width: 40rem;
+  height: 100%;
+  top:0;
+  right: -20px;
+  background-color: rgba($color-primary-dark, .9);
+  
+  display: grid;
+  grid-template-rows: 10% auto 10%;
+
+  @include respond(tab-port) {
+    width:100%;
+    right:0;
+
+    background-image:linear-gradient( to right bottom, $color-primary,
+     $color-primary-dark);
+  }
+
+  &__button {
+    font-size: 6rem;
+
+    &-container {
+      grid-row: 1 / 2;
+      width: 100%;
+      height: 10rem;
+      background-color: $color-primary-light;
+
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+    }
+  }
+
+  &__container {
+    grid-row: 2/3;
+    font-size: 2rem;
+    font-weight: 500;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include respond(tab-port) {
+      font-size: 4rem;
+    }
+
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+  }
+
+  &__items {
+
+    display: flex;
+    align-items: center;
+    margin: 2rem;
+    width: 100%;
+
+    &--home {
+      @extend %items;
+    }
+
+    &--post {
+      @extend %items;
+    }
+
+    &--edit {
+      @extend %items;
+    }
+
+    &--logout {
+      @extend %items;
+    }
+  }
+
+  &__footer {
+    grid-row: 3 / -1;
+    background-color: $color-primary-dark;
+    position: relative;
+  }
+
+  &__paragraphy {
+    display: flex;
+    @include center;
+  }
+
+}

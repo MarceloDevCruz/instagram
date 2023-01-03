@@ -62,6 +62,9 @@ input {
   font-family: inherit;
   font-weight: inherit; }
 
+ul {
+  list-style: none; }
+
 .mg-top-sm {
   margin-top: 2rem !important; }
 
@@ -142,19 +145,20 @@ input {
   display: flex;
   margin: 2rem 0;
   padding: 1rem;
-  border-radius: 10px;
   background-color: transparent;
   border: none;
-  border-bottom: 3px solid transparent;
+  border-bottom: 1px solid rgba(245, 238, 238, 0.5);
   width: 90%;
   display: block;
   color: #f5eeee;
   letter-spacing: 2px; }
+  .form__input:focus {
+    border-radius: 10px; }
   .form__input::placeholder {
     color: #EAD7D7; }
 
 .footer {
-  height: 15vh;
+  min-height: 15vh;
   background-image: linear-gradient(to right bottom, #373434, #090808);
   display: flex;
   flex-direction: column;
@@ -234,6 +238,63 @@ input {
 ::-webkit-scrollbar-thumb {
   border-radius: 2rem;
   border: 1rem solid #EAD7D7; }
+
+.sidebar__items--home, .sidebar__items--post, .sidebar__items--edit, .sidebar__items--logout {
+  gap: 10%; }
+
+.sidebar {
+  position: fixed;
+  width: 40rem;
+  height: 100%;
+  top: 0;
+  right: -20px;
+  background-color: rgba(9, 8, 8, 0.9);
+  display: grid;
+  grid-template-rows: 10% auto 10%; }
+  @media only screen and (max-width: 56.25em) {
+    .sidebar {
+      width: 100%;
+      right: 0;
+      background-image: linear-gradient(to right bottom, #131212, #090808); } }
+  .sidebar__button {
+    font-size: 6rem; }
+    .sidebar__button-container {
+      grid-row: 1 / 2;
+      width: 100%;
+      height: 10rem;
+      background-color: #373434;
+      display: flex;
+      align-items: center;
+      padding: 0 2rem; }
+  .sidebar__container {
+    grid-row: 2/3;
+    font-size: 2rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    @media only screen and (max-width: 56.25em) {
+      .sidebar__container {
+        font-size: 4rem; } }
+  .sidebar__list {
+    display: flex;
+    flex-direction: column;
+    justify-items: center; }
+  .sidebar__items {
+    display: flex;
+    align-items: center;
+    margin: 2rem;
+    width: 100%; }
+  .sidebar__footer {
+    grid-row: 3 / -1;
+    background-color: #090808;
+    position: relative; }
+  .sidebar__paragraphy {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
 
 .login {
   max-width: 130rem;

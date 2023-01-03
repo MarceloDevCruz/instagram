@@ -1,23 +1,19 @@
 // Bootstrap icons
-import {
-  BsHouseDoor,
-  BsCursor,
-  BsPlusSquare,
-  BsPencilSquare,
-  BsHeart,
-  BsPerson,
-  BsSearch
-} from "react-icons/bs";
+import { BsSearch, BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 
-import instagram from '../../assets/img/instagram.png'
+// Images
+import logo from '../../assets/img/instagram.png'
 
 // hooks
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { useAuthorization } from '../../hooks/useAuthorization'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 
 import { logout, reset } from '../../slices/authSlice'
+
+// Components
+import Sidebar from '../sidebar/Sidebar'
 
 const NavBar = () => {
 
@@ -25,6 +21,12 @@ const NavBar = () => {
   const { user } = useSelector((state) => state.auth)
 
   const [query, setQuery] = useState('')
+  const [render, setRender] = useState(false)
+
+  const onShow = useCallback(() => {
+
+    render ? setRender(false) : setRender(true)
+  })
 
   const navigate = useNavigate()
 
@@ -46,21 +48,16 @@ const NavBar = () => {
   }
 
   return (
-    <>
-      <Link to="/"><img src={instagram} alt="Logo" /></Link>
-      <form onSubmit={handleSearch}>
-        <input type="search" name="search" placeholder='Search'
-          onChange={(e) => setQuery(e.target.value)} />
-        <button><BsSearch /></button>
+    <header className="header">
+      <img src={logo} alt="logo" className="header__logo" />
+      <form className='header__form'>
+        <input type="search" placeholder='search...' className="header__search" />
+        <button className="header__button"><BsSearch /></button>
       </form>
 
-      <Link to="/"><li><BsHouseDoor /></li></Link>
-      <li><BsCursor /></li>
-      <Link to={`/users/${user._id}`}><li><BsPlusSquare /></li></Link>
-      <Link to="/profile"><li><BsPencilSquare /></li></Link>
-      <li><BsHeart /></li>
-      <li><span onClick={handleLogout}><BsPerson /></span></li>
-    </>
+      <button onClick={onShow} className="header__sidebar"> {render ? <BsChevronRight /> : <BsChevronLeft />}</button>
+      {render && <Sidebar />}
+    </header>
   )
 }
 
