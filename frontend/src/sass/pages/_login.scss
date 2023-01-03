@@ -30,6 +30,10 @@
     margin: 3rem;
     width: 55%;
 
+    &:hover {
+      @include animationVector;
+    }
+
     @include respond(phone) {
       width: 80%;
     }

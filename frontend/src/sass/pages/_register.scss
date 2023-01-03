@@ -29,6 +29,11 @@
   &__vector {
     margin: 3rem;
     width: 57%;
+    transition: all .5s linear;
+
+    &:hover {
+      @include animationVector;
+    }
 
     @include respond(tab-land) {
       width: 50%;

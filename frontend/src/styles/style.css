@@ -59,6 +59,18 @@ input {
 .mg-top-sm {
   margin-top: 2rem !important; }
 
+@keyframes vectorAnimation {
+  0% {
+    transform: scale(1); }
+  25% {
+    transform: scale(1.05); }
+  50% {
+    transform: scale(1.1); }
+  75% {
+    transform: scale(1.05); }
+  100% {
+    transform: scale(1); } }
+
 .btn {
   width: 20rem;
   height: 4rem;
@@ -147,7 +159,7 @@ input {
 
 .header {
   width: 100%;
-  height: 25vh;
+  height: 18vh;
   background-color: #090808;
   background-image: linear-gradient(to right top, rgba(55, 52, 52, 0.9), rgba(9, 8, 8, 0.8)), url("../assets/img/header-background.png");
   background-repeat: repeat-x;
@@ -231,6 +243,12 @@ input {
   .login__vector {
     margin: 3rem;
     width: 55%; }
+    .login__vector:hover {
+      animation-name: vectorAnimation;
+      animation-duration: 2s;
+      animation-delay: .3s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite; }
     @media only screen and (max-width: 37.5em) {
       .login__vector {
         width: 80%; } }
@@ -254,7 +272,14 @@ input {
         flex-direction: column; } }
   .register__vector {
     margin: 3rem;
-    width: 57%; }
+    width: 57%;
+    transition: all .5s linear; }
+    .register__vector:hover {
+      animation-name: vectorAnimation;
+      animation-duration: 2s;
+      animation-delay: .3s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite; }
     @media only screen and (max-width: 75em) {
       .register__vector {
         width: 50%;

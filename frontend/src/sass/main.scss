@@ -1,8 +1,11 @@
+// ABSTRACTS
+@import './abstract/variables';
+@import './abstract/mixins';
+
 // BASE
-@import './base/variables';
 @import './base/reset';
-@import './base/mixins';
 @import './base/utils';
+@import './base/animations';
 
 //COMPONENTS 
 @import './components/button';

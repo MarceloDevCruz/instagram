@@ -44,3 +44,11 @@
     padding: 1.5rem;
   }
 }
+
+@mixin animationVector {
+  animation-name: vectorAnimation;
+  animation-duration: 2s;
+  animation-delay: .3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
