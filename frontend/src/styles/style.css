@@ -207,7 +207,7 @@ ul {
   color: #f5eeee; }
 
 .footer {
-  height: 15vh;
+  min-height: 30vh;
   background-image: linear-gradient(to right bottom, #373434, #090808);
   display: flex;
   flex-direction: column;
@@ -229,10 +229,14 @@ ul {
   background-image: linear-gradient(to right top, rgba(55, 52, 52, 0.9), rgba(9, 8, 8, 0.8)), url("../assets/img/header-background.png");
   background-repeat: repeat-x;
   background-size: cover;
+  position: relative;
   display: grid;
   grid-template-columns: 3fr 3fr 1fr; }
-  @media only screen and (max-width: 37.5em) {
+  @media only screen and (max-width: 56.25em) {
     .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       flex-direction: column; } }
   .header__logo {
     height: 5rem;
@@ -277,11 +281,6 @@ ul {
     top: 5%;
     right: 10%;
     z-index: 20; }
-    .header__sidebar-close {
-      font-size: 7.5rem;
-      position: fixed;
-      top: 1.5%;
-      right: 15.5%; }
     @media only screen and (max-width: 56.25em) {
       .header__sidebar {
         font-size: 4.5rem; } }
@@ -291,6 +290,12 @@ ul {
         position: fixed;
         top: 10px;
         right: 15px; } }
+  .header__sidebar-close {
+    font-size: 7.5rem;
+    position: fixed;
+    z-index: 30;
+    top: 1rem;
+    right: 1rem; }
 
 ::-webkit-scrollbar {
   width: .5rem;
@@ -325,9 +330,7 @@ ul {
       width: 100%;
       height: 10rem;
       background-color: #373434;
-      display: flex;
-      align-items: center;
-      padding: 0 2rem; }
+      justify-content: flex-start; }
   .sidebar__container {
     grid-row: 2/3;
     font-size: 2rem;
@@ -430,7 +433,7 @@ ul {
   grid-template-columns: repeat(4, 1fr);
   width: 80%;
   margin: 0 auto;
-  filter: brightness(0.25); }
+  filter: brightness(0.75); }
   @media only screen and (max-width: 112.5em) {
     .home {
       grid-template-columns: repeat(3, 1fr); } }
@@ -446,7 +449,7 @@ ul {
   .home__background {
     background-image: url("../assets/img/background.svg");
     background-repeat: repeat;
-    filter: brightness(4); }
+    filter: brightness(1.5); }
   .home__container {
     background-color: #090808;
     max-height: 50rem;

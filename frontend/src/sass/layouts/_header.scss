@@ -11,11 +11,15 @@
   url('../assets/img/header-background.png');
   background-repeat: repeat-x;
   background-size: cover;
+  position: relative;
 
   display: grid;
   grid-template-columns: 3fr 3fr 1fr;
 
-  @include respond(phone) {
+  @include respond(tab-port) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     flex-direction: column;
   }
 
@@ -79,14 +83,6 @@
     top:5%;
     right: 10%;
     z-index: 20;
-
-    &-close {
-      font-size: 7.5rem;
-      position: fixed;
-      top: 1.5%;
-      right: 15.5%;
-    }
-
     @include respond(tab-port) {
       font-size: 4.5rem;
     }
@@ -98,5 +94,14 @@
       right: 15px;
 
     }
+  }
+
+  // BOTÃO DE FECHAR SIDEBAR DA NAVBAR
+  &__sidebar-close {
+    font-size: 7.5rem;
+    position: fixed;
+    z-index: 30;
+    top: 1rem;
+    right: 1rem;
   }
 }

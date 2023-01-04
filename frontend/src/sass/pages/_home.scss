@@ -7,7 +7,7 @@
 
   width: 80%;
   margin: 0 auto;
-  filter: brightness(.25);
+  filter: brightness(.75);
 
   @include respond(medium-desktop) {
     grid-template-columns: repeat(3, 1fr);
@@ -29,7 +29,7 @@
     background-image:
     url('../assets/img/background.svg');
     background-repeat: repeat;
-    filter: brightness(4);
+    filter: brightness(1.5);
   }
 
 
