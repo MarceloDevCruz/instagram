@@ -1,0 +1,69 @@
+%resetBrightness {
+  filter: brightness(0.8);
+}
+
+.edit-profile {
+
+  &__container {
+    margin: 0 auto;
+    min-height: 70vh;
+    width: 80rem;
+    padding: 5rem;
+    position: relative;
+    
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+
+    background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-dark, 0.4),
+      rgba($color-primary-dark, 0.4)),
+  url('../assets/img/main-background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    box-shadow: 1rem 5rem rgba($color-primary-dark, .1);
+
+    @include respond(tab-port) {
+      width: 80%;
+    }
+  }
+
+  &__user-photo {
+    @extend %resetBrightness;
+  }
+
+  &__photo {
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid $color-secondary;
+    @extend %resetBrightness;
+  }
+
+  &__input {
+    margin: 1.6rem;
+    width: 60% ;
+    @extend %resetBrightness;
+
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+
+  &__label {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 1rem 0;
+    text-align: center;
+
+    @include respond(small-phone) {
+      font-size: 1rem;
+    }
+  }
+}

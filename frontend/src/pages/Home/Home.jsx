@@ -28,7 +28,7 @@ const Home = () => {
   }
 
   return (
-    <div className="home__background">
+    <div className="background">
       <main className="home" >
 
         <h1 className="home__title">UnsplashGram</h1>

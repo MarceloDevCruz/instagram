@@ -4,6 +4,7 @@
   height: 4rem;
   font-weight: 500;
   border-radius: 10px;
+  font-size: 1.6rem;
 
   &-outline-white {
     border: 1px solid $color-white;
@@ -12,6 +13,24 @@
       background-color: $color-primary-dark;
       border: none;
     }
+  }
+
+  &-secondary {
+    border: 1px solid $color-secondary-dark;
+    color: $color-secondary;
+
+    &:hover {
+      background-color: $color-primary-light;
+      border: none;
+    }
+  }
+
+  &-special {
+    color: $color-red;
+    font-size: 4rem;
+    position: absolute;
+    top: 2%;
+    right: 2%;
   }
 
 }

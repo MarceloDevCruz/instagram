@@ -36,9 +36,15 @@ const Sidebar = () => {
       </div>
       <nav className="sidebar__container">
         <ul className="sidebar__list">
-          <button><li className="sidebar__items sidebar__items--home"><BsHouseDoor />Home</li></button>
-          <button><li className="sidebar__items sidebar__items--post"><BsPlusCircle />Create Post</li></button>
-          <button><li className="sidebar__items sidebar__items--edit"><BsPerson />Edit Profile</li></button>
+          <button><li>
+            <Link to="/" className="sidebar__items sidebar__items--home">
+              <BsHouseDoor />Home</Link></li></button>
+          <button><li>
+            <Link to={`/users/${user._id}`} className="sidebar__items sidebar__items--post">
+              <BsPlusCircle />Create Post</Link></li></button>
+          <button><li>
+            <Link to="/profile" className="sidebar__items sidebar__items--edit">
+              <BsPerson />Edit Profile</Link></li></button>
           <button onClick={handleLogout}
           ><li className="sidebar__items sidebar__items--logout"><BsArrowRightCircle />Logout</li></button>
         </ul>

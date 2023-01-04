@@ -17,8 +17,10 @@
 @import './layouts/header';
 @import './layouts/scrollbar';
 @import './layouts/sidebar';
+@import './layouts/background';
 
 //PAGES
 @import './pages/login';
 @import './pages/register';
 @import './pages/home';
+@import './pages/editProfile';

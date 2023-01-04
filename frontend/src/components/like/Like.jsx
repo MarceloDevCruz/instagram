@@ -6,10 +6,10 @@ const Like = ({ photo, user, handleLike }) => {
       {photo.likes && user && (
         <div className="card__like">
           {photo.likes.includes(user._id) ? (
-            <BsHeartFill className="card__like-image-liked" />
+            <BsHeartFill className="card__like-image card__like-image-liked" />
           ) : (
             <BsHeart onClick={() => handleLike(photo)}
-              className="card__like-image-unliked" />
+              className="card__like-image card__like-image-unliked" />
           )}
           <p className="card__like-text">{photo.likes.length} like(s)</p>
         </div>

@@ -71,6 +71,9 @@ ul {
 .mg-top-md {
   margin-top: 4rem !important; }
 
+.hidden-input {
+  display: none !important; }
+
 @keyframes vectorAnimation {
   0% {
     transform: scale(1); }
@@ -87,12 +90,25 @@ ul {
   width: 20rem;
   height: 4rem;
   font-weight: 500;
-  border-radius: 10px; }
+  border-radius: 10px;
+  font-size: 1.6rem; }
   .btn-outline-white {
     border: 1px solid #f5eeee; }
     .btn-outline-white:hover {
       background-color: #090808;
       border: none; }
+  .btn-secondary {
+    border: 1px solid #5a7cb1;
+    color: #abb8cd; }
+    .btn-secondary:hover {
+      background-color: #373434;
+      border: none; }
+  .btn-special {
+    color: #e63f3f;
+    font-size: 4rem;
+    position: absolute;
+    top: 2%;
+    right: 2%; }
 
 .form__container {
   height: 40rem;
@@ -168,7 +184,7 @@ ul {
   color: #abb8cd; }
 
 .card__photo {
-  width: 25.5rem;
+  width: 28.5rem;
   height: 34.5rem;
   object-fit: cover;
   border: 2px solid #abb8cd;
@@ -194,17 +210,22 @@ ul {
     justify-content: center; }
 
 .card__title {
-  text-align: center; }
+  display: inline-block;
+  width: 100%;
+  height: 4.5rem;
+  text-align: center;
+  overflow: hidden; }
 
 .card__createdBy {
   text-decoration: none;
   font-weight: 500; }
 
-.card__like-image-liked {
-  color: #e63f3f; }
-
-.card__like-image-unliked {
-  color: #f5eeee; }
+.card__like-image {
+  cursor: pointer; }
+  .card__like-image-liked {
+    color: #e63f3f; }
+  .card__like-image-unliked {
+    color: #f5eeee; }
 
 .footer {
   min-height: 30vh;
@@ -224,7 +245,7 @@ ul {
 
 .header {
   width: 100%;
-  height: 18vh;
+  min-height: 20vh;
   background-color: #090808;
   background-image: linear-gradient(to right top, rgba(55, 52, 52, 0.9), rgba(9, 8, 8, 0.8)), url("../assets/img/header-background.png");
   background-repeat: repeat-x;
@@ -239,12 +260,12 @@ ul {
       align-items: center;
       flex-direction: column; } }
   .header__logo {
-    height: 5rem;
+    max-height: 5rem;
     justify-self: center;
     align-self: center; }
   .header__search {
     width: 30rem;
-    height: 5rem;
+    max-height: 5rem;
     background-color: transparent;
     border: 1px solid #f5eeee;
     padding: 1rem;
@@ -341,6 +362,9 @@ ul {
     @media only screen and (max-width: 56.25em) {
       .sidebar__container {
         font-size: 4rem; } }
+    @media only screen and (max-width: 28.1em) {
+      .sidebar__container {
+        font-size: 3rem; } }
   .sidebar__list {
     display: flex;
     flex-direction: column;
@@ -349,7 +373,8 @@ ul {
     display: flex;
     align-items: center;
     margin: 2rem;
-    width: 100%; }
+    width: 100%;
+    text-decoration: none; }
   .sidebar__footer {
     grid-row: 3 / -1;
     background-color: #090808;
@@ -360,6 +385,11 @@ ul {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); }
+
+.background {
+  background-image: url("../assets/img/background.svg");
+  background-repeat: repeat;
+  filter: brightness(1.5); }
 
 .login {
   max-width: 130rem;
@@ -446,14 +476,10 @@ ul {
   @media only screen and (max-width: 37.5em) {
     .home {
       grid-template-columns: 1fr; } }
-  .home__background {
-    background-image: url("../assets/img/background.svg");
-    background-repeat: repeat;
-    filter: brightness(1.5); }
   .home__container {
     background-color: #090808;
-    max-height: 50rem;
-    max-width: 35.5rem;
+    height: 50rem;
+    width: 35.5rem;
     align-self: center;
     justify-self: center;
     padding: 2rem;
@@ -493,3 +519,48 @@ ul {
     @media only screen and (max-width: 28.1em) {
       .home__title {
         font-size: 2.5rem; } }
+
+.edit-profile__user-photo, .edit-profile__photo, .edit-profile__input {
+  filter: brightness(0.8); }
+
+.edit-profile__container {
+  margin: 0 auto;
+  min-height: 70vh;
+  width: 80rem;
+  padding: 5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-image: linear-gradient(to right bottom, rgba(9, 8, 8, 0.4), rgba(9, 8, 8, 0.4)), url("../assets/img/main-background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  box-shadow: 1rem 5rem rgba(9, 8, 8, 0.1); }
+  @media only screen and (max-width: 56.25em) {
+    .edit-profile__container {
+      width: 80%; } }
+
+.edit-profile__photo {
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #abb8cd; }
+
+.edit-profile__input {
+  margin: 1.6rem;
+  width: 60%; }
+  @media only screen and (max-width: 37.5em) {
+    .edit-profile__input {
+      width: 100%; } }
+
+.edit-profile__label {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 1rem 0;
+  text-align: center; }
+  @media only screen and (max-width: 28.1em) {
+    .edit-profile__label {
+      font-size: 1rem; } }
