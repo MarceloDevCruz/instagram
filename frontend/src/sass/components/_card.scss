@@ -1,0 +1,68 @@
+%color {
+  color: $color-secondary;
+}
+
+.card {
+
+  &__photo {
+
+    width: 25.5rem;
+    height: 34.5rem;
+    object-fit: cover;
+    border: 2px solid $color-secondary;
+    border-radius: 5%;
+
+    @include respond(medium-desktop) {
+      width: 23rem;
+      height: 30rem;
+    }
+
+    @include respond(tab-port) {
+      width: 18rem;
+      height: 24rem;
+    }
+
+    @include respond(phone) {
+      width: 23rem;
+      height: 30rem;
+    }
+
+    @include respond(small-phone) {
+      width: 14rem;
+      height: 20rem;
+    }
+
+    &-container {
+      display: flex;
+      justify-content: center ;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    @extend %color;
+  }
+
+  &__createdBy {
+    @extend %color;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  &__like{
+
+
+    &-image-liked{
+      color: $color-red;
+    }
+
+    &-image-unliked {
+      color: $color-white;
+    }
+
+    &-text {
+      @extend %color;
+    }
+  }
+
+}

@@ -32,12 +32,24 @@
       color: $color-white;
       letter-spacing: 2px;
 
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover, 
+      &:-webkit-autofill:focus, 
+      &:-webkit-autofill:active {
+          -webkit-box-shadow: 0 0 0 30px $color-primary inset !important;
+      }
+
+      &:-webkit-autofill {
+        -webkit-text-fill-color: $color-white !important;
+    }
+
       &:focus {
         border-radius: 10px;
       }
 
       &::placeholder {
         color: $color-white-dark;
+
     }
   }
 }

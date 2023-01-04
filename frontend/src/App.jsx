@@ -27,7 +27,7 @@ function App() {
       {loading ? '<Loading />' : (
         <div className="App">
           <BrowserRouter>
-            {auth ? <NavBar /> : <Header />}
+            {auth ? <NavBar /> : ''}
             <Routes>
               <Route path="/" element={auth ? <Home /> : <Navigate to="/login" />} />
               <Route path="/login" element={!auth ? <Login /> : <Navigate to="/" />} />

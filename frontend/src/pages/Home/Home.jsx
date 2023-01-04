@@ -1,4 +1,3 @@
-
 // Components
 import Like from '../../components/like/Like'
 import PhotoItem from '../../components/photoItem/PhotoItem'
@@ -29,22 +28,26 @@ const Home = () => {
   }
 
   return (
-    <div >
-      {photos &&
-        photos.map((photo) => (
-          <div key={photo._id}>
-            <PhotoItem photo={photo} />
-            <Like photo={photo} user={user} handleLike={handleLike} />
-            <Link to={`/photos/${photo._id}`}>
-              Ver mais
-            </Link>
-          </div>
-        ))}
-      {photos && photos.length === 0 && (
-        <h2 >
-          Ainda não há fotos publicadas
-        </h2>
-      )}
+    <div className="home__background">
+      <main className="home" >
+
+        <h1 className="home__title">UnsplashGram</h1>
+        {photos &&
+          photos.map((photo) => (
+            <div key={photo._id} className="home__container">
+              <PhotoItem photo={photo} />
+              <Like photo={photo} user={user} handleLike={handleLike} />
+              <Link to={`/photos/${photo._id}`}>
+                Ver mais
+              </Link>
+            </div>
+          ))}
+        {photos && photos.length === 0 && (
+          <h2 className="home__no-content">
+            Ainda não há fotos publicadas
+          </h2>
+        )}
+      </main >
     </div>
   )
 }

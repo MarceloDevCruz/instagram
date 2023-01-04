@@ -7,7 +7,28 @@ import {
   BsChevronRight
 } from 'react-icons/bs'
 
+// hooks
+import { useState, useCallback } from 'react'
+import { useAuthorization } from '../../hooks/useAuthorization'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+
+import { logout, reset } from '../../slices/authSlice'
+
 const Sidebar = () => {
+
+  const { auth } = useAuthorization()
+  const { user } = useSelector((state) => state.auth)
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const handleLogout = () => {
+    dispatch(logout())
+    dispatch(reset())
+
+    navigate('/login')
+  }
 
   return (
     <section className="sidebar">
@@ -18,7 +39,8 @@ const Sidebar = () => {
           <button><li className="sidebar__items sidebar__items--home"><BsHouseDoor />Home</li></button>
           <button><li className="sidebar__items sidebar__items--post"><BsPlusCircle />Create Post</li></button>
           <button><li className="sidebar__items sidebar__items--edit"><BsPerson />Edit Profile</li></button>
-          <button><li className="sidebar__items sidebar__items--logout"><BsArrowRightCircle />Logout</li></button>
+          <button onClick={handleLogout}
+          ><li className="sidebar__items sidebar__items--logout"><BsArrowRightCircle />Logout</li></button>
         </ul>
       </nav>
       <div className="sidebar__footer">

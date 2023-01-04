@@ -4,14 +4,15 @@ const Like = ({ photo, user, handleLike }) => {
   return (
     < >
       {photo.likes && user && (
-        <>
+        <div className="card__like">
           {photo.likes.includes(user._id) ? (
-            <BsHeartFill />
+            <BsHeartFill className="card__like-image-liked" />
           ) : (
-            <BsHeart onClick={() => handleLike(photo)} />
+            <BsHeart onClick={() => handleLike(photo)}
+              className="card__like-image-unliked" />
           )}
-          <p>{photo.likes.length} like(s)</p>
-        </>
+          <p className="card__like-text">{photo.likes.length} like(s)</p>
+        </div>
       )}
     </>
   )

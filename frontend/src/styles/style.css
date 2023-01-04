@@ -68,6 +68,9 @@ ul {
 .mg-top-sm {
   margin-top: 2rem !important; }
 
+.mg-top-md {
+  margin-top: 4rem !important; }
+
 @keyframes vectorAnimation {
   0% {
     transform: scale(1); }
@@ -152,13 +155,59 @@ ul {
   display: block;
   color: #f5eeee;
   letter-spacing: 2px; }
+  .form__input:-webkit-autofill, .form__input:-webkit-autofill:hover, .form__input:-webkit-autofill:focus, .form__input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #131212 inset !important; }
+  .form__input:-webkit-autofill {
+    -webkit-text-fill-color: #f5eeee !important; }
   .form__input:focus {
     border-radius: 10px; }
   .form__input::placeholder {
     color: #EAD7D7; }
 
+.card__title, .card__createdBy, .card__like-text {
+  color: #abb8cd; }
+
+.card__photo {
+  width: 25.5rem;
+  height: 34.5rem;
+  object-fit: cover;
+  border: 2px solid #abb8cd;
+  border-radius: 5%; }
+  @media only screen and (max-width: 112.5em) {
+    .card__photo {
+      width: 23rem;
+      height: 30rem; } }
+  @media only screen and (max-width: 56.25em) {
+    .card__photo {
+      width: 18rem;
+      height: 24rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .card__photo {
+      width: 23rem;
+      height: 30rem; } }
+  @media only screen and (max-width: 28.1em) {
+    .card__photo {
+      width: 14rem;
+      height: 20rem; } }
+  .card__photo-container {
+    display: flex;
+    justify-content: center; }
+
+.card__title {
+  text-align: center; }
+
+.card__createdBy {
+  text-decoration: none;
+  font-weight: 500; }
+
+.card__like-image-liked {
+  color: #e63f3f; }
+
+.card__like-image-unliked {
+  color: #f5eeee; }
+
 .footer {
-  min-height: 15vh;
+  height: 15vh;
   background-image: linear-gradient(to right bottom, #373434, #090808);
   display: flex;
   flex-direction: column;
@@ -181,7 +230,7 @@ ul {
   background-repeat: repeat-x;
   background-size: cover;
   display: grid;
-  grid-template-columns: 40vw 40vw 20vw; }
+  grid-template-columns: 3fr 3fr 1fr; }
   @media only screen and (max-width: 37.5em) {
     .header {
       flex-direction: column; } }
@@ -261,6 +310,7 @@ ul {
   top: 0;
   right: -20px;
   background-color: rgba(9, 8, 8, 0.9);
+  z-index: 5;
   display: grid;
   grid-template-rows: 10% auto 10%; }
   @media only screen and (max-width: 56.25em) {
@@ -372,3 +422,71 @@ ul {
     @media only screen and (max-width: 37.5em) {
       .register__vector {
         width: 80%; } }
+
+.home {
+  min-height: 80vh;
+  display: grid;
+  gap: .5rem;
+  grid-template-columns: repeat(4, 1fr);
+  width: 80%;
+  margin: 0 auto;
+  filter: brightness(0.25); }
+  @media only screen and (max-width: 112.5em) {
+    .home {
+      grid-template-columns: repeat(3, 1fr); } }
+  @media only screen and (max-width: 75em) {
+    .home {
+      grid-template-columns: repeat(2, 1fr); } }
+  @media only screen and (max-width: 56.25em) {
+    .home {
+      width: 90%; } }
+  @media only screen and (max-width: 37.5em) {
+    .home {
+      grid-template-columns: 1fr; } }
+  .home__background {
+    background-image: url("../assets/img/background.svg");
+    background-repeat: repeat;
+    filter: brightness(4); }
+  .home__container {
+    background-color: #090808;
+    max-height: 50rem;
+    max-width: 35.5rem;
+    align-self: center;
+    justify-self: center;
+    padding: 2rem;
+    border-radius: 5%;
+    margin: 1.5rem; }
+    @media only screen and (max-width: 112.5em) {
+      .home__container {
+        width: 30rem;
+        height: 45rem;
+        margin: 1.5rem .7rem; } }
+    @media only screen and (max-width: 56.25em) {
+      .home__container {
+        width: 25rem;
+        height: 40rem;
+        margin: 1.5rem .4rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .home__container {
+        width: 30rem;
+        height: 45rem;
+        margin: 1.5rem .7rem; } }
+    @media only screen and (max-width: 28.1em) {
+      .home__container {
+        width: 20rem;
+        height: 35rem;
+        margin: 1.5rem .4rem; } }
+  .home__title {
+    grid-column: 1/-1;
+    justify-self: center;
+    margin: 2rem;
+    text-transform: uppercase;
+    display: inline-block;
+    background-image: linear-gradient(to right, #d9dde3, #5a7cb1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 2px; }
+    @media only screen and (max-width: 28.1em) {
+      .home__title {
+        font-size: 2.5rem; } }

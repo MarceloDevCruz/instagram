@@ -10,6 +10,7 @@
   top:0;
   right: -20px;
   background-color: rgba($color-primary-dark, .9);
+  z-index: 5;
   
   display: grid;
   grid-template-rows: 10% auto 10%;

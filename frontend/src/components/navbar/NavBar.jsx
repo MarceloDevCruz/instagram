@@ -55,7 +55,8 @@ const NavBar = () => {
         <button className="header__button"><BsSearch /></button>
       </form>
 
-      <button onClick={onShow} className="header__sidebar"> {render ? <BsX className="header__sidebar-close" /> : <BsList />}</button>
+      <button onClick={onShow} className="header__sidebar">
+        {render ? <BsX className="header__sidebar-close" /> : <BsList />}</button>
       {render && <Sidebar />}
     </header>
   )

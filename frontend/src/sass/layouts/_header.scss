@@ -13,7 +13,7 @@
   background-size: cover;
 
   display: grid;
-  grid-template-columns: 40vw 40vw 20vw;
+  grid-template-columns: 3fr 3fr 1fr;
 
   @include respond(phone) {
     flex-direction: column;

@@ -4,7 +4,7 @@ import { BsGithub } from 'react-icons/bs'
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="footer mg-top-md">
       <p className="footer__paragraphy">Copyright © Marcelo Ferreira Cruz, MIT Licence</p>
       <p className="footer__paragraphy">Repositório do projeto</p>
       <a href="https://github.com/MarceloDevCruz/instagram" target="_blank">
