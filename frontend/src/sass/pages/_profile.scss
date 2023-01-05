@@ -2,6 +2,22 @@
   margin: 2rem 0;
 }
 
+%icons {
+  margin: 1rem 1rem 0 0;
+}
+
+%main-background {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba($color-primary-dark, 0.4),
+    rgba($color-primary-dark, 0.4)),
+  url('../assets/img/main-background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  box-shadow: 1rem 5rem rgba($color-primary-dark, .1);
+}
+
 .profile {
   margin: 2rem;
 
@@ -13,16 +29,7 @@
     width: 70vw;
     margin: 0 auto;
     padding: 2.5rem;
-
-    background-image: linear-gradient(
-      to right bottom,
-      rgba($color-primary-dark, 0.4),
-      rgba($color-primary-dark, 0.4)),
-  url('../assets/img/main-background.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 10px;
-    box-shadow: 1rem 5rem rgba($color-primary-dark, .1);
+    @extend %main-background; 
 
     @include respond(tab-land) {
       width: 85vw;
@@ -75,6 +82,7 @@
   &__bio {
     align-items: center;
     font-weight: 300;
+    text-align: center;
     @extend %margin;
   }
 
@@ -91,5 +99,32 @@
     &-post {
       text-align: center;
     }
+  }
+
+  &__view-icon {
+    font-size: 2.2rem;
+    color: $color-secondary;
+    @extend %icons;
+
+    &:hover {
+      color: $color-secondary-dark;
+    }
+  }
+
+  &__delete-icon {
+    font-size: 2.2rem;
+    color: $color-red;
+    @extend %icons;
+    
+    &:hover {
+      color: darken($color-red, 20%);
+    }
+  }
+
+  &__individual-container {
+    
+    @extend %main-background; 
+    padding: 3rem;
+    margin-bottom: 2rem;
   }
 }

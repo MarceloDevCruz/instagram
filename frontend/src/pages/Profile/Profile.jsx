@@ -1,5 +1,4 @@
-// VScode icons
-import { VscEdit, VscEye, VscTrash } from 'react-icons/vsc'
+import { BsTrash, BsEye } from 'react-icons/bs'
 
 // utils
 import { uploads } from '../../utils/config'
@@ -84,40 +83,53 @@ const Profile = () => {
   return (
     <div className="background">
       <div className="resetFilter">
-        <section className="profile">
-          <div className="profile__container">
+        {id === userAuth._id ? (
+          <section className="profile">
+            <div className="profile__container">
+              <div className="profile__container-user">
+                {user.profileImage && (
+                  <img className="profile__image"
+                    src={`${uploads}/users/${user.profileImage}`} alt={user.name} />
+                )}
+                <h2 className="profile__name">{user.name}</h2>
+                <h6 className="profile__bio">{user.bio}</h6>
+                <p className="profile__text">Você atualmente tem {photos.length} posts</p>
+              </div>
+
+
+              <div className="profile__container-create">
+                {id === userAuth._id && (
+                  <>
+                    <div ref={newPhotoForm}>
+                      <form className="form" onSubmit={handleSubmit}>
+                        <h1 className="profile__title mg-top-bottom-sm">Crie um novo post</h1>
+                        <input type="text" placeholder="Insert title" className="form__input mg-top-bottom-sm"
+                          onChange={(e) => setTitle(e.target.value)} value={title || ''} />
+                        <label htmlFor="file" className="form__label mg-top-bottom-sm">Compartilhe uma foto</label>
+                        <input type="file" id="file" className="hidden-input" onChange={handleFile} />
+                        <button type='submit' className="btn btn-secondary">Postar</button>
+                      </form>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+          </section>
+        ) : (
+          <div className="profile__individual-container">
             <div className="profile__container-user">
               {user.profileImage && (
                 <img className="profile__image"
                   src={`${uploads}/users/${user.profileImage}`} alt={user.name} />
               )}
               <h2 className="profile__name">{user.name}</h2>
-              <h5 className="profile__bio">{user.bio}</h5>
-              <p className="profile__text">Você atualmente tem {photos.length} posts</p>
-            </div>
-
-            <div className="profile__container-create">
-              {id === userAuth._id && (
-                <>
-                  <div ref={newPhotoForm}>
-                    <form className="form" onSubmit={handleSubmit}>
-                      <h1 className="profile__title mg-top-bottom-sm">Crie um novo post</h1>
-                      <input type="text" placeholder="Insert title" className="form__input mg-top-bottom-sm"
-                        onChange={(e) => setTitle(e.target.value)} value={title || ''} />
-                      <label htmlFor="file" className="form__label mg-top-bottom-sm">Compartilhe uma foto</label>
-                      <input type="file" id="file" className="hidden-input" onChange={handleFile} />
-                      <button type='submit' className="btn btn-secondary">Postar</button>
-                    </form>
-                  </div>
-                </>
-              )}
+              <h6 className="profile__bio">{user.bio}</h6>
+              <p className="profile__text">{user.name} atualmente tem {photos.length} posts</p>
             </div>
           </div>
-        </section>
-        {id === userAuth._id ? (
+        )}
+        {id === userAuth._id && (
           <h1 className="profile__title-post">Seus posts</h1>
-        ) : (
-          <h1>{user.name} Posts</h1>
         )}
       </div>
       <div className="home">
@@ -125,15 +137,18 @@ const Profile = () => {
           photos.map((photo) => (
             <div key={photo._id} className="home__container">
               <PhotoItem photo={photo} />
-              <Link to={`/photos/${photo._id}`}>
-                Ver mais
+              <Link to={`/photos/${photo._id}`} >
+                <BsEye className="profile__view-icon" />
               </Link>
+              {id === userAuth._id && (
+                <button onClick={() => handleDelete(photo._id)} >
+                  <BsTrash className="profile__delete-icon" /></button>)}
             </div>
           ))}
       </div>
       {
         photos.length === 0 &&
-        <p>Sem posts no momemnto...</p>
+        <h4 className="profile__title-post">Sem posts no momemnto...</h4>
       }
       <div>
         {errorPhoto && <MessageDanger msg={errorPhoto} type="danger" />}
