@@ -19,7 +19,7 @@
       letter-spacing: 2px;
     }
 
-    &__input {
+    &__input, &__textarea {
       display: flex;
 
       margin:2rem 0;
@@ -49,7 +49,25 @@
 
       &::placeholder {
         color: $color-white-dark;
+    }
+  }
 
+  &__textarea {
+    font-family: inherit;
+    border: 1px solid $color-secondary;
+    border-radius: 10px;
+    width: 40rem;
+    height: 10rem;
+    letter-spacing: 1.4px;
+
+    @include respond(phone) {
+      width: 30rem;
+      height: 8rem;
+    }
+
+    @include respond(small-phone) {
+      width: 20rem;
+      height: 6rem;
     }
   }
 

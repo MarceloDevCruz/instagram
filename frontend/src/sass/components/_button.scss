@@ -16,8 +16,10 @@
   }
 
   &-secondary {
+    display: block;
     border: 1px solid $color-secondary-dark;
     color: $color-secondary;
+    margin: 0 auto;
 
     &:hover {
       background-color: $color-primary-light;

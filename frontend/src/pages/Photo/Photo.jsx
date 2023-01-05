@@ -52,42 +52,56 @@ const Photo = () => {
   }
 
   return (
-    <>
-      <PhotoItem photo={photo} >
-      </PhotoItem>
-      <Like photo={photo} user={user} handleLike={handleLike} />
-      {photo.comments && (
-        <>
-          <h3>Comentários: {photo.comments.length}</h3>
-          <form onSubmit={handleComment}>
-            <input
-              type="text"
-              placeholder="Insira seu comentário..."
-              onChange={(e) => setCommentText(e.target.value)}
-              value={commentText || ""}
-            />
-            <input type="submit" value="Enviar" />
-          </form>
-          {photo.comments.length === 0 && <p>Não há comentários...</p>}
-          {photo.comments.map((comment) => (
-            <div className="comment" key={comment.comment}>
-              <div className="author">
-                {comment.userImage && (
-                  <img
-                    src={`${uploads}/users/${comment.userImage}`}
-                    alt={comment.userName}
-                  />
-                )}
-                <Link to={`/users/${comment.userId}`}>
-                  <p>{comment.userName}</p>
-                </Link>
-              </div>
-              <p>{comment.comment}</p>
+    <section className="profile">
+      <div className="background">
+        <div className="profile__individual-container resetFilter">
+          <div className="individual__container">
+            <div className="home__container">
+              <PhotoItem photo={photo} />
+              <Like photo={photo} user={user} handleLike={handleLike} />
             </div>
-          ))}
-        </>
-      )}
-    </>
+            {
+              photo.comments && (
+                <div className="individual__container-comment">
+                  <h3 className="individual__container-comment__length">
+                    Comentários: {photo.comments.length}</h3>
+                  <form onSubmit={handleComment} className="form">
+                    <textarea
+                      placeholder="Insira seu comentário..."
+                      className="form__textarea"
+                      onChange={(e) => setCommentText(e.target.value)}
+                      value={commentText || ""}
+                    />
+                    <button className="btn btn-secondary" type="submit">Enviar</button>
+                  </form>
+                  {photo.comments.length === 0 && <h5
+                    className="individual__container-comment__no-comment">Não há comentários...</h5>}
+                  {photo.comments.map((comment) => (
+                    <div className="individual__container-comment__content">
+                      <div className="individual__container-comment__content__author"
+                        key={comment.comment}>
+                        {comment.userImage && (
+                          <img className="individual__container-comment__content__author__image"
+                            src={`${uploads}/users/${comment.userImage}`}
+                            alt={comment.userName}
+                          />
+                        )}
+                        <Link to={`/users/${comment.userId}`} className="individual__container-comment__content__author__name">
+                          {comment.userName}
+                        </Link>
+                      </div>
+                      <span className="individual__container-comment__content__author__comment">
+                        {comment.comment}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )
+            }
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }
 
