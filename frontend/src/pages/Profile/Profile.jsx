@@ -7,6 +7,7 @@ import { uploads } from '../../utils/config'
 // componentes
 import MessageDanger from '../../components/message/danger/MessageDanger'
 import MessageSuccess from '../../components/message/success/MessageSuccess'
+import PhotoItem from '../../components/photoItem/PhotoItem'
 
 // hooks
 import { useState, useEffect, useRef } from 'react'
@@ -81,64 +82,64 @@ const Profile = () => {
   }, [dispatch, id])
 
   return (
-    <>
-      {user.profileImage && (
-        <img src={`${uploads}/users/${user.profileImage}`} alt={user.name} />
-      )}
-      <div>
-        <h1>{user.name}</h1>
-        <p>Your bio:</p>
-        <p>{user.bio}</p>
-      </div>
+    <div className="background">
+      <div className="resetFilter">
+        <section className="profile">
+          <div className="profile__container">
+            <div className="profile__container-user">
+              {user.profileImage && (
+                <img className="profile__image"
+                  src={`${uploads}/users/${user.profileImage}`} alt={user.name} />
+              )}
+              <h2 className="profile__name">{user.name}</h2>
+              <h5 className="profile__bio">{user.bio}</h5>
+              <p className="profile__text">Você atualmente tem {photos.length} posts</p>
+            </div>
 
-      {id === userAuth._id && (
-        <>
-          <div ref={newPhotoForm}>
-            <form onSubmit={handleSubmit}>
-              <h1>Create a New Post</h1>
-              <input type="text" placeholder="Insert title" onChange={(e) => setTitle(e.target.value)} value={title || ''} />
-              <label htmlFor="file">Insert Image for you post</label>
-              <input type="file" id="file" onChange={handleFile} />
-              <button type='submit'>Post</button>
-            </form>
+            <div className="profile__container-create">
+              {id === userAuth._id && (
+                <>
+                  <div ref={newPhotoForm}>
+                    <form className="form" onSubmit={handleSubmit}>
+                      <h1 className="profile__title mg-top-bottom-sm">Crie um novo post</h1>
+                      <input type="text" placeholder="Insert title" className="form__input mg-top-bottom-sm"
+                        onChange={(e) => setTitle(e.target.value)} value={title || ''} />
+                      <label htmlFor="file" className="form__label mg-top-bottom-sm">Compartilhe uma foto</label>
+                      <input type="file" id="file" className="hidden-input" onChange={handleFile} />
+                      <button type='submit' className="btn btn-secondary">Postar</button>
+                    </form>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
-        </>
-      )}
-      {id === userAuth._id ? (
-        <>
-          <h1>Your posts</h1>
-        </>
-      ) : (
-        <>
+        </section>
+        {id === userAuth._id ? (
+          <h1 className="profile__title-post">Seus posts</h1>
+        ) : (
           <h1>{user.name} Posts</h1>
-        </>
-      )}
-      {photos && photos.map((photo) => (
-        <div key={photo._id}>
-          <h3>{photo.title}</h3>
-          {photo.image && (
-            <img src={`${uploads}/photos/${photo.image}`}
-              alt={photo.title}></img>
-          )}
-          {id === userAuth._id ? (
-            <ul>
-              <Link to={`/photos/${photo._id}`}><button><VscEye></VscEye></button></Link>
-              <li><button onClick={() =>
-                handleDelete(photo._id)}><VscTrash></VscTrash></button></li>
-            </ul>
-          ) : (
-            <Link to={`/photos/${photo._id}`}><button><VscEye></VscEye></button></Link>
-          )}
-        </div>
-      ))}
-      {photos.length === 0 &&
-        <p>Sem fotos no momento</p>
+        )}
+      </div>
+      <div className="home">
+        {photos &&
+          photos.map((photo) => (
+            <div key={photo._id} className="home__container">
+              <PhotoItem photo={photo} />
+              <Link to={`/photos/${photo._id}`}>
+                Ver mais
+              </Link>
+            </div>
+          ))}
+      </div>
+      {
+        photos.length === 0 &&
+        <p>Sem posts no momemnto...</p>
       }
       <div>
         {errorPhoto && <MessageDanger msg={errorPhoto} type="danger" />}
         {messagePhoto && <MessageSuccess msg={messagePhoto} type="sucess" />}
       </div>
-    </>
+    </div >
   )
 }
 

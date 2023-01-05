@@ -102,7 +102,7 @@ const EditProfile = () => {
                   } alt={user.name} />
               )}
             </div>
-            <label htmlFor="file" className="edit-profile__label">Clique para editar a foto</label>
+            <label htmlFor="file" className="form__label">Clique para editar a foto</label>
             <input type="file" id="file" className="hidden-input" onChange={handleFile} />
 
             <input type="text" placeholder="Seu nome..." className="form__input edit-profile__input"

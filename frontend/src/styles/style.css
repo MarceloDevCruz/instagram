@@ -74,6 +74,12 @@ ul {
 .hidden-input {
   display: none !important; }
 
+.resetFilter {
+  filter: brightness(0.75) !important; }
+
+.mg-top-bottom-sm {
+  margin: 4rem 0 !important; }
+
 @keyframes vectorAnimation {
   0% {
     transform: scale(1); }
@@ -179,6 +185,16 @@ ul {
     border-radius: 10px; }
   .form__input::placeholder {
     color: #EAD7D7; }
+
+.form__label {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 1rem 0;
+  cursor: pointer; }
+  @media only screen and (max-width: 28.1em) {
+    .form__label {
+      font-size: 1rem; } }
 
 .card__title, .card__createdBy, .card__like-text {
   color: #abb8cd; }
@@ -457,7 +473,7 @@ ul {
         width: 80%; } }
 
 .home {
-  min-height: 80vh;
+  min-height: 40rem;
   display: grid;
   gap: .5rem;
   grid-template-columns: repeat(4, 1fr);
@@ -556,11 +572,59 @@ ul {
     .edit-profile__input {
       width: 100%; } }
 
-.edit-profile__label {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin: 1rem 0;
-  text-align: center; }
+.profile__name, .profile__bio, .profile__text {
+  margin: 2rem 0; }
+
+.profile {
+  margin: 2rem; }
+  .profile__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    min-height: 80vh;
+    width: 70vw;
+    margin: 0 auto;
+    padding: 2.5rem;
+    background-image: linear-gradient(to right bottom, rgba(9, 8, 8, 0.4), rgba(9, 8, 8, 0.4)), url("../assets/img/main-background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    box-shadow: 1rem 5rem rgba(9, 8, 8, 0.1); }
+    @media only screen and (max-width: 75em) {
+      .profile__container {
+        width: 85vw; } }
+    @media only screen and (max-width: 56.25em) {
+      .profile__container {
+        display: flex;
+        flex-direction: column;
+        min-height: 85rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .profile__container {
+        width: 90vw; } }
+    .profile__container-user {
+      grid-column: 1/2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+    .profile__container-create {
+      grid-column: 2/-1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+  .profile__image {
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #abb8cd; }
+  .profile__name {
+    align-items: center; }
+  .profile__bio {
+    align-items: center;
+    font-weight: 300; }
   @media only screen and (max-width: 28.1em) {
-    .edit-profile__label {
-      font-size: 1rem; } }
+    .profile__title {
+      font-size: 2.3rem; } }
+  .profile__title-post {
+    text-align: center; }

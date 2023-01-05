@@ -52,4 +52,16 @@
 
     }
   }
+
+  &__label {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 1rem 0;
+    cursor: pointer;
+
+    @include respond(small-phone) {
+      font-size: 1rem;
+    }
+  }
 }

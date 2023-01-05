@@ -1,0 +1,95 @@
+%margin {
+  margin: 2rem 0;
+}
+
+.profile {
+  margin: 2rem;
+
+  &__container {
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    min-height: 80vh;
+    width: 70vw;
+    margin: 0 auto;
+    padding: 2.5rem;
+
+    background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-dark, 0.4),
+      rgba($color-primary-dark, 0.4)),
+  url('../assets/img/main-background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    box-shadow: 1rem 5rem rgba($color-primary-dark, .1);
+
+    @include respond(tab-land) {
+      width: 85vw;
+    }
+
+    @include respond(tab-port) {
+      display: flex;
+      flex-direction: column;
+      min-height: 85rem;
+    }
+
+    @include respond(phone) {
+      width:90vw;
+    }
+
+
+    &-user {
+      grid-column: 1/2;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-create {
+      grid-column: 2/-1;
+      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+    }
+  }
+
+  &__image {
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid $color-secondary;
+  }
+
+  &__name {
+    align-items: center;
+    @extend %margin;
+  }
+
+  &__bio {
+    align-items: center;
+    font-weight: 300;
+    @extend %margin;
+  }
+
+  &__text {
+    @extend %margin;
+  }
+
+  &__title {
+
+    @include respond(small-phone) {
+      font-size: 2.3rem;
+    }
+
+    &-post {
+      text-align: center;
+    }
+  }
+}

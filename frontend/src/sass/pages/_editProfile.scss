@@ -55,15 +55,4 @@
       width: 100%;
     }
   }
-
-  &__label {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 1rem 0;
-    text-align: center;
-
-    @include respond(small-phone) {
-      font-size: 1rem;
-    }
-  }
 }
