@@ -29,7 +29,8 @@ const photoUpdateValidation = () => {
 
 const photoCommentValidation = () => {
   return [
-    body('comment').isString().withMessage('Comente alguma coisa')
+    body('comment').isString().withMessage('Comente alguma coisa').isLength({ min: 1 })
+      .withMessage('O comentário não pode está vazio'),
   ]
 }
 
