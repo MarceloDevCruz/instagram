@@ -98,6 +98,7 @@
 
           &__name {
             text-decoration: none;
+            text-align: center;
 
             @include respond(small-phone) {
               font-size: .5rem;

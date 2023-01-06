@@ -31,22 +31,26 @@ const Search = () => {
   }
 
   return (
-    <div className="div">
-      <p>Você está buscando por: {search}</p>
-      {photos && photos.map((photo) => (
-        <div key={photo._id}>
-          <PhotoItem photo={photo} />
-          <Like photo={photo} user={user} handleLike={handleLike} />
-          <Link className="btn" to={`/photos/${photo._id}`}>
-            Ver mais
-          </Link>
-        </div>
-      ))}
-      {photos && photos.length === 0 && (
-        <h2 className="no-photos">
-          Não foi encontrado resultados
-        </h2>
-      )}
+    <div className="background">
+      <div className="home" >
+        <h1 className="home__title">UnsplashGram</h1>
+        <h6 className="home__search-content">Você está buscando por: {search}</h6>
+        {photos &&
+          photos.map((photo) => (
+            <div key={photo._id} className="home__container">
+              <PhotoItem photo={photo} />
+              <Like photo={photo} user={user} handleLike={handleLike} />
+              <Link to={`/photos/${photo._id}`}>
+                Ver mais
+              </Link>
+            </div>
+          ))}
+        {photos && photos.length === 0 && (
+          <h2 className="home__no-content">
+            Não foram encontrados resultados para pesquisa...
+          </h2>
+        )}
+      </div >
     </div>
   )
 }

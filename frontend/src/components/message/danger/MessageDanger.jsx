@@ -1,8 +1,8 @@
-
 const MessageDanger = ({ msg, type }) => {
-
   return (
-    <span>{msg}</span>
+    <div className="message__container">
+      <span className="message__text-danger">{msg}</span>
+    </div>
   )
 }
 

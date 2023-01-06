@@ -30,7 +30,6 @@ const Home = () => {
   return (
     <div className="background">
       <main className="home" >
-
         <h1 className="home__title">UnsplashGram</h1>
         {photos &&
           photos.map((photo) => (
@@ -51,6 +50,5 @@ const Home = () => {
     </div>
   )
 }
-
 
 export default Home

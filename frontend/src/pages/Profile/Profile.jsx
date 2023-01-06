@@ -34,9 +34,8 @@ const Profile = () => {
   const [title, setTitle] = useState('')
   const [image, setImage] = useState('')
 
-  // Photo
+  // post
   const newPhotoForm = useRef()
-  const editPhotoForm = useRef()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -73,6 +72,7 @@ const Profile = () => {
   const handleFile = (e) => {
     const image = e.target.files[0]
     setImage(image)
+
   }
 
   useEffect(() => {
@@ -146,10 +146,6 @@ const Profile = () => {
             </div>
           ))}
       </div>
-      {
-        photos.length === 0 &&
-        <h4 className="profile__title-post">Sem posts no momemnto...</h4>
-      }
       <div>
         {errorPhoto && <MessageDanger msg={errorPhoto} type="danger" />}
         {messagePhoto && <MessageSuccess msg={messagePhoto} type="sucess" />}

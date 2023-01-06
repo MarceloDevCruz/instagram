@@ -50,9 +50,10 @@ const NavBar = () => {
   return (
     <header className="header">
       <img src={logo} alt="logo" className="header__logo" />
-      <form className='header__form'>
-        <input type="search" placeholder='search...' className="header__search" />
-        <button className="header__button"><BsSearch /></button>
+      <form className='header__form' onSubmit={handleSearch}>
+        <input type="search" placeholder='search...' className="header__search"
+          onChange={(e) => setQuery(e.target.value)} />
+        <button type="submit" className="header__button"><BsSearch /></button>
       </form>
 
       <button onClick={onShow}>

@@ -1,0 +1,25 @@
+.message {
+
+  &__container {
+    width: 24rem;
+    height: 8rem;
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    background-color: rgba($color-primary, .9);
+    padding: 2rem;
+    border-radius: 10px;
+  }
+
+  &__text {
+
+    &-sucess {
+      color: $color-green;
+    }
+
+    &-danger {
+      color: $color-red;
+    }
+    
+  }
+}

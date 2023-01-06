@@ -15,7 +15,6 @@ import Photo from './pages/Photo/Photo'
 // components
 import NavBar from './components/navbar/NavBar'
 import Search from './components/search/Search'
-import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 
 function App() {
@@ -27,7 +26,7 @@ function App() {
       {loading ? '<Loading />' : (
         <div className="App">
           <BrowserRouter>
-            {auth ? <NavBar /> : ''}
+            {auth && <NavBar />}
             <Routes>
               <Route path="/" element={auth ? <Home /> : <Navigate to="/login" />} />
               <Route path="/login" element={!auth ? <Login /> : <Navigate to="/" />} />

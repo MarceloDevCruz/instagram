@@ -261,6 +261,22 @@ ul {
   .card__like-image-unliked {
     color: #f5eeee; }
 
+.message__container {
+  width: 24rem;
+  height: 8rem;
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  background-color: rgba(19, 18, 18, 0.9);
+  padding: 2rem;
+  border-radius: 10px; }
+
+.message__text-sucess {
+  color: #198754; }
+
+.message__text-danger {
+  color: #e63f3f; }
+
 .footer {
   min-height: 30vh;
   background-image: linear-gradient(to right bottom, #373434, #090808);
@@ -499,7 +515,8 @@ ul {
               height: 4rem;
               width: 4rem; } }
         .individual__container-comment__content__author__name {
-          text-decoration: none; }
+          text-decoration: none;
+          text-align: center; }
           @media only screen and (max-width: 28.1em) {
             .individual__container-comment__content__author__name {
               font-size: .5rem; } }
@@ -641,6 +658,15 @@ ul {
     @media only screen and (max-width: 28.1em) {
       .home__title {
         font-size: 2.5rem; } }
+  .home__no-content {
+    grid-column: 1/-1;
+    justify-self: center;
+    text-align: center; }
+  .home__search-content {
+    grid-column: 1/-1;
+    justify-self: center;
+    text-align: center;
+    letter-spacing: 1.6px; }
 
 .edit-profile__user-photo, .edit-profile__photo, .edit-profile__input {
   filter: brightness(0.8); }

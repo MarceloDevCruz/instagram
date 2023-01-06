@@ -25,7 +25,7 @@ const Photo = () => {
   const { photo, loading, error, message } = useSelector((state) => state.photo)
 
   // Comentários
-  const [commentText, setCommentText] = useState('')
+  const [commentText, setCommentText] = useState()
 
   // Dados do post
   useEffect(() => {
@@ -35,6 +35,9 @@ const Photo = () => {
   // Like
   const handleLike = () => {
     dispatch(likePhoto(photo._id))
+    setTimeout(() => {
+      dispatch(resetMessage())
+    }, 5000);
   }
 
   // inserir comentário
@@ -48,7 +51,10 @@ const Photo = () => {
 
     dispatch(commentPhoto(photoData));
 
-    setCommentText("")
+    setCommentText('')
+    setTimeout(() => {
+      dispatch(resetMessage())
+    }, 5000);
   }
 
   return (

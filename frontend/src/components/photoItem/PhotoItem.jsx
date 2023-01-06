@@ -14,7 +14,7 @@ const PhotoItem = ({ photo }) => {
         </div>
       )}
       <h2 className="card__title">{photo.title}</h2>
-      <p className="card__like-text">Por:
+      <p className="card__like-text">Por :
         <Link to={`/users/${photo.userId}`} className="card__createdBy"
         >{` ${photo.userName}`}</Link>
       </p>
