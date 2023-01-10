@@ -124,7 +124,7 @@ export const photoSlice = createSlice({
   reducers: {
     resetMessage: (state) => {
       state.message = null
-    }
+    },
   },
   extraReducers: (builder) => {
     builder

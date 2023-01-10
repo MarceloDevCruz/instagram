@@ -13,7 +13,7 @@ import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 // Redux
-import { getPhotoById, likePhoto, commentPhoto } from '../../slices/photoSlice'
+import { getPhotoById, likePhoto, commentPhoto, resetMessage } from '../../slices/photoSlice'
 import Like from '../../components/like/Like'
 
 const Photo = () => {
@@ -106,6 +106,10 @@ const Photo = () => {
             }
           </div>
         </div>
+      </div>
+      <div>
+        {error && <MessageDanger msg={error} type="danger" />}
+        {message && <MessageSuccess msg={message} type="sucess" />}
       </div>
     </section>
   )

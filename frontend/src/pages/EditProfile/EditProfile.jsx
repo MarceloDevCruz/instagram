@@ -116,11 +116,13 @@ const EditProfile = () => {
             <button className="btn btn-secondary mg-top-sm" type="submit">Salvar</button>
             <button className="btn-special" type="reset"><Link to="/"
             ><BsBackspaceReverseFill /></Link></button>
-            {/* TROCAR POR UMA FLASH MESSAGER! */}
-            {error && <MessageDanger msg={error} type="danger" />}
-            {!error && <MessageSuccess msg={error} type="sucess" />}
+
           </div>
         </form>
+        <div>
+          {error && <MessageDanger msg={error} type="danger" />}
+          {message && <MessageSuccess msg={message} type="sucess" />}
+        </div>
       </section>
     </div>
   )

@@ -96,7 +96,6 @@ const Profile = () => {
                 <p className="profile__text">Você atualmente tem {photos.length} posts</p>
               </div>
 
-
               <div className="profile__container-create">
                 {id === userAuth._id && (
                   <>
