@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 // importando os .env
-const dbUser = process.env.DB_USER;
-const dbPassword = process.env.DB_PASS;
+/* const dbUser = process.env.DB_USER;
+const dbPassword = process.env.DB_PASS; */
 
 // Conectando com o banco de dados do mongoDb
 const conn = async () => {

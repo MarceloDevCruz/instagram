@@ -6,7 +6,7 @@ const express = require("express");
 const path = require("path");
 const cors = require("cors");
 
-const port = process.env.PORT;
+//const port = process.env.PORT;
 
 const app = express();
 
@@ -39,7 +39,4 @@ const router = require("./routes/Router.js");
 
 app.use(router);
 
-app.listen(port, () => {
-  console.log(`App rodando na porta ${port}`);
-  console.log(`localhost:${port}`);
-});
+app.listen(port, () => {});
