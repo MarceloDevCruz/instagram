@@ -1,5 +1,5 @@
-export const api = "http://34.95.175.55/api";
-export const uploads = "http://34.95.175.55/uploads";
+export const api = "https://unplashgram-api.onrender.com/api";
+export const uploads = "https://unplashgram-api.onrender.com/uploads";
 
 export const requestConfig = (method, data, token = null, image = null) => {
   let config;
